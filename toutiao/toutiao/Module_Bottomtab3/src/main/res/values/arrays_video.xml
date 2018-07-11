@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bt3_channel">
+        <item>推荐</item>
+        <item>美女</item>
+        <item>随拍</item>
+        <item>美食</item>
+        <item>户外</item>
+    </string-array>
+    <string-array name="bt3_channel_code">
+        <item>hotsoon_video</item>
+        <item>ugc_video_beauty</item>
+        <item>ugc_video_casual</item>
+        <item>ugc_video_food</item>
+        <item>ugc_video_life</item>
+        <item>subv_jmj</item>
+    </string-array>
+</resources>

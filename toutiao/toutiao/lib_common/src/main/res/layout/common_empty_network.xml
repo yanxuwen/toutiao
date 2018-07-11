@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--寺庙关注空状态-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/emptyview_network"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/common_black"
+    android:gravity="center"
+    android:paddingBottom="@dimen/DIMEN_50DP"
+    android:visibility="gone"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_emptyview"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:id="@+id/iv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/common_ic_launcher"
+            />
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_below="@id/iv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_no_network"
+            android:textSize="@dimen/DIMEN_13SP"
+            android:textColor="@color/standard_gray"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/DIMEN_25DP"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

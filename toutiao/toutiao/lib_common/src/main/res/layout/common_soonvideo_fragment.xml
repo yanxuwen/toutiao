@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_drag"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yanxuwen.lib_common.Utils.video.SoonCoverVideo
+        android:id="@+id/layout_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/DIMEN_15DP"
+        android:src="@drawable/common_ic_close" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/DIMEN_15DP"
+        android:src="@drawable/common_ic_more" />
+
+    <LinearLayout
+        android:id="@+id/layout_function"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/DIMEN_15DP"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/DIMEN_30DP"
+                android:layout_height="@dimen/DIMEN_30DP"
+                android:src="@mipmap/common_like" />
+
+            <TextView
+                android:id="@+id/tv_digg_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="598"
+                android:textColor="@color/white"
+                android:textSize="@dimen/DIMEN_12SP" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/DIMEN_15DP"
+            android:gravity="center"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/DIMEN_30DP"
+                android:layout_height="@dimen/DIMEN_30DP"
+                android:src="@mipmap/common_comment" />
+
+            <TextView
+                android:id="@+id/tv_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="598"
+                android:textColor="@color/white"
+                android:textSize="@dimen/DIMEN_12SP" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/DIMEN_15DP"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/DIMEN_22DP"
+                android:layout_height="@dimen/DIMEN_22DP"
+                android:src="@drawable/common_ic_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/common_share"
+                android:textColor="@color/white"
+                android:textSize="@dimen/DIMEN_12SP" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/DIMEN_15DP"
+        android:layout_toLeftOf="@id/layout_function"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/layout_music"
+            android:layout_width="@dimen/DIMEN_100DP"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_shape_corners_solid_black40"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="@dimen/DIMEN_12DP"
+                android:layout_height="@dimen/DIMEN_12DP"
+                android:layout_margin="@dimen/DIMEN_5DP"
+                android:src="@drawable/common_ic_music"
+                />
+
+            <TextView
+                android:id="@+id/tv_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:src="@drawable/common_ic_more"
+                android:textColor="@color/white"
+                android:textSize="@dimen/DIMEN_13SP"
+                tools:text="小爱同学，叫十遍天猫精灵" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/common_ic_more"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/DIMEN_10DP"
+            android:textSize="@dimen/DIMEN_13SP"
+            tools:text="小爱同学，叫十遍天猫精灵" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/DIMEN_10DP"
+            android:paddingTop="@dimen/DIMEN_10DP">
+
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="@dimen/DIMEN_40DP"
+                android:layout_height="@dimen/DIMEN_40DP"
+                android:src="@mipmap/icon" />
+                <TextView
+                    android:id="@+id/tv_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/iv_head"
+                    android:singleLine="true"
+                    android:layout_marginLeft="@dimen/DIMEN_10DP"
+                    android:src="@drawable/common_ic_more"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/DIMEN_15SP"
+                    android:layout_centerVertical="true"
+                    tools:text="机器人乐园"
+                    android:paddingRight="@dimen/DIMEN_50DP"
+                    />
+                <TextView
+                    android:id="@+id/tv_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/DIMEN_10DP"
+                    android:layout_alignRight="@id/tv_author"
+                    android:background="@drawable/common_shape_corners_solid_red"
+                    android:paddingBottom="@dimen/DIMEN_3DP"
+                    android:paddingLeft="@dimen/DIMEN_10DP"
+                    android:paddingRight="@dimen/DIMEN_10DP"
+                    android:paddingTop="@dimen/DIMEN_3DP"
+                    android:text="@string/common_follow"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/DIMEN_13SP" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/DIMEN_15DP"
+            android:background="@drawable/common_shape_corners_solid_black40"
+            android:drawableLeft="@mipmap/common_write"
+            android:drawablePadding="@dimen/DIMEN_5DP"
+            android:paddingBottom="@dimen/DIMEN_8DP"
+            android:paddingLeft="@dimen/DIMEN_10DP"
+            android:paddingRight="@dimen/DIMEN_10DP"
+            android:paddingTop="@dimen/DIMEN_8DP"
+            android:text="@string/common_write_a_comment"
+            android:textColor="@color/white"
+            android:textSize="@dimen/DIMEN_14SP" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/DIMEN_200DP"
+        tools:visibility="gone"
+        >
+
+        <include
+            android:id="@+id/common_drag_comments"
+            layout="@layout/common_drag_comments" />
+    </RelativeLayout>
+</RelativeLayout>

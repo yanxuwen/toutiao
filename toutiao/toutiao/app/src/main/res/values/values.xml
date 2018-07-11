@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/Users/Andreas/workspace/PagerSlidingTabStrip/library/res/values/colors.xml -->
+    <eat-comment />
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <!-- From: file:/C:/Users/Andreas/workspace/PagerSlidingTabStrip/library/res/values/attrs.xml -->
+    <eat-comment />
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />    //设置是否填充满整个控件，每个控件平分，pstsShowTabCount设置后，这个就无效
+        <attr name="pstsTextAllCaps" format="boolean" />    //设置如果是字母，全部转为大写
+        <attr name="pstsShowTabCount" format="integer" />   //设置只能显示几个
+        <attr name="pstsUnderlineEqualText" format="boolean" />//设置下划线是否跟文字一样长
+    </declare-styleable>
+
+</resources>

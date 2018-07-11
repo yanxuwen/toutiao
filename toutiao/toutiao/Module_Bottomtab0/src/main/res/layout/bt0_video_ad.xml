@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--显示一张图片-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:paddingTop="@dimen/DIMEN_10DP"
+        android:paddingLeft="@dimen/DIMEN_15DP"
+        android:paddingRight="@dimen/DIMEN_15DP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/tv_ad_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/DIMEN_10DP"
+            android:textColor="@color/black"
+            android:textSize="@dimen/DIMEN_19SP"
+            tools:text="001A航母下水一周年：主錨喷水央视直播摄像机就位" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_200DP"
+            >
+
+            <ImageView
+                android:id="@+id/iv_ad_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@mipmap/icon" />
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/DIMEN_15DP"
+            android:layout_marginBottom="@dimen/DIMEN_15DP"
+            android:ellipsize="end"
+            android:maxLines="2">
+
+            <include
+                android:id="@+id/tv_ad_x"
+                layout="@layout/common_x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+            <TextView
+                android:id="@+id/tv_ad_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/DIMEN_15DP"
+                android:layout_toLeftOf="@id/tv_ad_x"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/common_blue"
+                android:textSize="@dimen/common_article_author"
+                tools:text="立即下载" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@id/tv_ad_type"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/DIMEN_10DP"
+                    android:background="@drawable/common_shape_corners_hollow_blue"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingBottom="@dimen/DIMEN_2DP"
+                    android:paddingLeft="@dimen/DIMEN_3DP"
+                    android:paddingRight="@dimen/DIMEN_3DP"
+                    android:paddingTop="@dimen/DIMEN_2DP"
+                    android:text="@string/common_ad"
+                    android:textColor="@color/common_blue"
+                    android:textSize="@dimen/DIMEN_11SP" />
+                <TextView
+                    android:id="@+id/tv_ad_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/DIMEN_10DP"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/common_article_author"
+                    tools:text="迷彩青春 81评论" />
+
+                </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

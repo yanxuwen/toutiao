@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <dimen name="common_article_title">@dimen/DIMEN_18SP</dimen>
+    <dimen name="common_article_author">@dimen/DIMEN_14SP</dimen>
+    <dimen name="bottom_navigation_text_size_active">10sp</dimen>
+    <dimen name="bottom_navigation_text_size_inactive">10sp</dimen>
+    <dimen name="bottom_navigation_padding_bottom">@dimen/DIMEN_3DP</dimen>
+    <dimen name="bottom_navigation_padding_left">0dp</dimen>
+    <dimen name="bottom_navigation_padding_right">0dp</dimen>
+    <dimen name="bottom_navigation_padding_top_active">0dp</dimen>
+    <dimen name="bottom_navigation_padding_top_inactive">0dp</dimen>
+    <dimen name="bottom_navigation_height">50dp</dimen>
+
+</resources>

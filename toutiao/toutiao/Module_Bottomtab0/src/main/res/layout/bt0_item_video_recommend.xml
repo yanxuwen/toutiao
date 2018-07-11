@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:selectableItemBackground"
+    android:paddingLeft="@dimen/DIMEN_15DP"
+    android:paddingRight="@dimen/DIMEN_15DP"
+    >
+
+    <ImageView
+        android:id="@+id/iv_thumb"
+        android:layout_width="@dimen/DIMEN_120DP"
+        android:layout_height="@dimen/DIMEN_80DP"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        tools:src="@mipmap/icon" />
+    <TextView
+        android:id="@+id/tv_video_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/iv_thumb"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/DIMEN_5DP"
+        android:background="@drawable/common_shape_corners_solid_mask"
+        android:includeFontPadding="false"
+        android:paddingBottom="@dimen/DIMEN_3DP"
+        android:paddingLeft="@dimen/DIMEN_10DP"
+        android:paddingRight="@dimen/DIMEN_10DP"
+        android:paddingTop="@dimen/DIMEN_3DP"
+        android:textColor="@color/white"
+        android:textSize="@dimen/DIMEN_11SP"
+        tools:text="13图" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/iv_thumb"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/DIMEN_15DP"
+        android:paddingBottom="@dimen/DIMEN_15DP"
+        android:paddingRight="@dimen/DIMEN_15DP">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/DIMEN_18SP"
+            tools:text="张世豪拿到六亿八千万，整个世界都疯狂了！" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/DIMEN_10DP"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_video_ad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/DIMEN_10DP"
+                android:background="@drawable/common_shape_corners_hollow_blue"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/DIMEN_2DP"
+                android:paddingLeft="@dimen/DIMEN_3DP"
+                android:paddingRight="@dimen/DIMEN_3DP"
+                android:paddingTop="@dimen/DIMEN_2DP"
+                android:text="@string/common_ad"
+                android:textColor="@color/common_blue"
+                android:textSize="@dimen/DIMEN_11SP"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/common_gray"
+                android:textSize="@dimen/DIMEN_12SP"
+                tools:text="小迪爱剪辑  5.4万万次播放" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

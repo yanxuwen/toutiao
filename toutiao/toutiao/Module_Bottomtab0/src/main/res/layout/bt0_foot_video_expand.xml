@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_expand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/DIMEN_10DP"
+            android:text="查看更多"
+            android:textColor="@color/black"
+            android:textSize="@dimen/DIMEN_18SP"
+            android:visibility="gone"
+            tools:visibility="visible" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_10DP"
+            android:background="@color/common_divider"
+            />
+        <LinearLayout
+            android:id="@+id/layout_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <include
+                layout="@layout/bt0_video_ad"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/DIMEN_10DP"
+                android:background="@color/common_divider"
+                />
+        </LinearLayout>
+    </LinearLayout>

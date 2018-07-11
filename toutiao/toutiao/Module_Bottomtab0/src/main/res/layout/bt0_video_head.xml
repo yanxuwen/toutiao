@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/iv_expand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_drop_down"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/DIMEN_7DP"
+        android:layout_marginRight="@dimen/DIMEN_15DP"
+
+        />
+    <LinearLayout
+        android:id="@+id/layout_video_info"
+        android:layout_toLeftOf="@id/iv_expand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/DIMEN_10DP"
+        android:paddingLeft="@dimen/DIMEN_15DP"
+        android:paddingRight="@dimen/DIMEN_15DP"
+>
+
+        <TextView
+            android:id="@+id/tv_video_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/DIMEN_22SP"
+            android:textStyle="bold"
+            tools:text="这才叫科幻动作电影 没有一分钟废话 直接开干 全程高能过瘾" />
+
+        <LinearLayout
+            android:id="@+id/layout_expand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/tv_video_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/DIMEN_22SP"
+                android:textStyle="bold"
+                tools:text="这才叫科幻动作电影 没有一分钟废话 直接开干 全程高能过瘾" />
+
+            <TextView
+                android:id="@+id/tv_play_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/DIMEN_10DP"
+                android:textColor="@color/common_gray"
+                android:textSize="@dimen/DIMEN_15SP"
+                tools:text="124.8万次播放" />
+
+            <TextView
+                android:id="@+id/tv_publish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/DIMEN_10DP"
+                android:textColor="@color/common_gray"
+                android:textSize="@dimen/DIMEN_15SP"
+                tools:text="2018年05月17日发布" />
+
+            <TextView
+                android:id="@+id/tv_abstract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/DIMEN_10DP"
+                android:textColor="@color/common_gray"
+                android:textSize="@dimen/DIMEN_15SP"
+                tools:text="这才叫科幻动作电影 没有一分钟废话 直接开干 全程高能过瘾" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_video_info"
+        >
+        <com.yanxuwen.MyRecyclerview.MyRecyclerView
+            android:id="@+id/rv_video_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent">
+        </com.yanxuwen.MyRecyclerview.MyRecyclerView>
+    </RelativeLayout>
+</RelativeLayout>

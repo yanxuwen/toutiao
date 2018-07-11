@@ -1,0 +1,52 @@
+<resources>
+    <string name="common_app_name">My Application</string>
+    <string name="common_not_data">暂时没有数据</string>
+    <string name="common_no_network">网络请求失败，请检查网络！\n轻触刷新刷新</string>
+
+    <!--更新-->
+    <!-- 更新 -->
+    <string name="common_request_fail">服务端响应失败，请稍后再试</string>
+    <string name="common_link_fail">   连接服务端失败，请检查网络连接</string>
+    <string name="common_upgrade_fail">更新过程出现异常\n请重新检测更新</string>
+    <string name="common_download_ready">准备下载中</string>
+    <string name="common_downloading">正在下载中...</string>
+    <string name="common_downloa_complete">下载完成</string>
+    <string name="common_common_downloa_start">开始下载</string>
+    <string name="common_downloa_fail">下载失败</string>
+    <string name="common_downloa_stop">下载完成</string>
+    <string name="common_forced_update">更新后使用</string>
+    <!-- download -->
+    <string name="common_downloaded">下载完成</string>
+    <string name="common_install">下载完成,点击安装</string>
+    <string name="common_upgrade">正在升级</string>
+
+
+    <!--新闻内容-->
+    <string name="common_newscontent_comment">%1$s %2$s评论</string>
+    <string name="common_newscontent_image_count">%1$s图</string>
+    <string name="common_newscontent_comment2">%1$s 评论</string>
+    <string name="common_has_follow">已关注</string>
+    <string name="common_follow">关注</string>
+    <string name="common_ad">广告</string>
+    <string name="common_ad_look">查看详情</string>
+    <string name="common_ad_download">立即下载</string>
+    <string name="common_play_count">%1$s次播放</string>
+    <string name="common_digg_count">%1$s赞</string>
+    <string name="common_fans_count">%1$s粉丝</string>
+    <string name="common_reply_count">%1$s回复</string>
+    <string name="common_reply_count_text">  · 回复</string>
+    <string name="common_reply">回复</string>
+    <string name="common_reply_count_all">查看全部%1$s回复</string>
+    <string name="common_all_comment">全部评论</string>
+
+    <string name="common_publish_time">%1$s发布</string>
+
+    <string name="common_wan">%1$s万</string>
+
+   <!--工具-->
+    <string name="common_save">保存</string>
+    <string name="common_write_a_comment">写评论...</string>
+    <string name="common_share">分享</string>
+    <string name="common_release">发布</string>
+
+</resources>

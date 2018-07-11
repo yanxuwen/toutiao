@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bt1_channel">
+        <item>推荐</item>
+        <item>音乐</item>
+        <item>影视</item>
+        <item>社会</item>
+        <item>农人</item>
+        <item>游戏</item>
+        <item>美食</item>
+        <item>生活</item>
+        <item>体育</item>
+        <item>金秒奖</item>
+    </string-array>
+    <string-array name="bt1_channel_code">
+        <item>video</item>
+        <item>subv_voice</item>
+        <item>subv_movie</item>
+        <item>subv_society</item>
+        <item>subv_tt_video_agriculture</item>
+        <item>subv_game</item>
+        <item>subv_tt_video_food</item>
+        <item>subv_life</item>
+        <item>subv_tt_video_sports</item>
+        <item>subv_jmj</item>
+    </string-array>
+</resources>

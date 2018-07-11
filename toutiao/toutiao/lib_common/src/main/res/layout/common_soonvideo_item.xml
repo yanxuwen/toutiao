@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_thumb"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_300DP"
+        android:adjustViewBounds="true" />
+    <ImageView
+        android:id="@+id/iv_mask"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_300DP"
+        android:background="@mipmap/common_mask_small"
+        android:rotation="180"
+        android:adjustViewBounds="true" />
+    <RelativeLayout
+        android:id="@+id/layout_count"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/DIMEN_35DP"
+        android:layout_alignBottom="@id/iv_thumb"
+        android:padding="@dimen/DIMEN_10DP">
+
+        <TextView
+            android:id="@+id/tv_digg_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/DIMEN_10SP"
+            tools:text="1.8万赞" />
+
+        <TextView
+            android:id="@+id/tv_play_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/DIMEN_10DP"
+            android:layout_toLeftOf="@id/tv_digg_count"
+            android:drawableLeft="@drawable/common_ic_play"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/DIMEN_10SP"
+            tools:text="45万次播放" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_above="@id/layout_count"
+        android:paddingLeft="@dimen/DIMEN_16DP"
+        android:paddingRight="@dimen/DIMEN_10DP"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/DIMEN_10DP"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/DIMEN_12SP"
+        tools:text="什么叫土豪? 什么叫奢侈？嗯....没错！这就是"/>
+</RelativeLayout>

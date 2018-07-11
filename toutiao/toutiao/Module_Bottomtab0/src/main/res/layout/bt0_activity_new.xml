@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/DIMEN_20DP"
+    android:descendantFocusability="blocksDescendants"
+    >
+    <com.yanxuwen.MyRecyclerview.MyRecyclerView
+        android:id="@+id/rv_new_comment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"></com.yanxuwen.MyRecyclerview.MyRecyclerView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/common_drag_reply"
+            layout="@layout/common_drag_reply" />
+    </RelativeLayout>
+</RelativeLayout>

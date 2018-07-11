@@ -1,0 +1,18 @@
+<com.example.app.myapplication.FrameLayout.Reveal.RevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+                android:id="@+id/reveal_layout">
+    <LinearLayout
+        android:id="@+id/content_fragment"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/common_background"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
+
+
+</com.example.app.myapplication.FrameLayout.Reveal.RevealLayout>

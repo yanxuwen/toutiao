@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yanxuwen.lib_common.widget.Drawer.ReplyDragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    myapp:mode="drag_bottom">
+
+    <LinearLayout
+        android:id="@+id/layout_reply"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/DIMEN_15DP"
+                android:paddingRight="@dimen/DIMEN_15DP"
+                android:paddingTop="@dimen/DIMEN_10DP"
+                android:paddingBottom="@dimen/DIMEN_10DP"
+                android:text="@string/common_reply"
+                android:textColor="@color/common_black"
+                android:textSize="@dimen/DIMEN_18SP" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="@dimen/DIMEN_20DP"
+                android:layout_height="@dimen/DIMEN_20DP"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/DIMEN_8DP"
+                android:src="@mipmap/icon_x" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_05DP"
+            android:background="@color/common_gray"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/DIMEN_15DP"
+            android:paddingRight="@dimen/DIMEN_15DP"
+            android:paddingTop="@dimen/DIMEN_15DP"
+            android:text="@string/common_all_comment"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/DIMEN_16SP" />
+        <com.yanxuwen.MyRecyclerview.MyRecyclerView
+            android:id="@+id/rv_reply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent" />
+    </LinearLayout>
+</com.yanxuwen.lib_common.widget.Drawer.ReplyDragLayout>

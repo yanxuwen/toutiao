@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--引导页结束按钮-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_pressed="false"
+        android:drawable="@drawable/common_shape_corners_hollow_blue" />
+    <item
+        android:state_pressed="true"
+        android:drawable="@drawable/common_shape_corners_solid_blue" />
+    <item
+        android:drawable="@drawable/common_shape_corners_hollow_blue" />
+</selector>

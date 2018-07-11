@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--在不设置海拔的情况下使用的阴影背景-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--图层1 显示在下方-->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="#00000000"
+                android:centerY="0.4"
+                android:startColor="#33434242"
+                android:type="linear" />
+            <size android:height="1dp" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.yanxuwen.module_login">
+
+    <application android:allowBackup="true"
+        android:supportsRtl="true">
+        <activity
+            android:name=".LoginActivity"/>
+    </application>
+
+</manifest>

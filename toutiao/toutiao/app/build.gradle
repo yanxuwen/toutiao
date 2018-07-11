@@ -1,0 +1,132 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.jakewharton.butterknife'
+//kotlin阿里路由
+kapt {
+    generateStubs = true
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    defaultConfig {
+        applicationId "com.example.app.myapplication"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs {
+        debug {
+            storeFile file("./GuangYaoTianRun.jks")
+            storePassword "guangyaotianrun"
+            keyAlias "shandengwanhua"
+            keyPassword "shandengwanhua"
+            v2SigningEnabled false
+        }
+        release {
+            storeFile file("./GuangYaoTianRun.jks")
+            storePassword "guangyaotianrun"
+            keyAlias "shandengwanhua"
+            keyPassword "shandengwanhua"
+            v2SigningEnabled false
+        }
+    }
+    buildTypes {
+        debug  {
+            // 不显示Log, 在java代码中的调用方式为：BuildConfig.LOG_DEBUG
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            //混淆
+            minifyEnabled false
+            //Zipalign优化
+            zipAlignEnabled true
+            //签名
+            signingConfig signingConfigs.debug
+        }
+        release {
+            // 如果没有提供混淆规则文件，则设置默认的混淆规则文件（SDK/tools/proguard/proguard-android.txt）
+            pseudoLocalesEnabled true
+            // 不显示Log, 在java代码中的调用方式为：BuildConfig.LOG_DEBUG
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            //加载默认混淆配置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'P:/WorkSpace/Module/share/OAuth/libs';dirs 'libs'  // 申明本地库
+            dirs 'P:/WorkSpace/Module/Utils/MyUtils/libs';dirs 'libs'  // 申明本地库
+            dirs 'libs'   // 申明本地库
+        }
+    }
+    productFlavors {
+        toutiao {
+            applicationId "com.example.app.toutiao"
+            versionCode 6
+            versionName "6.6.6"
+        }
+    }
+    }
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    //阿里巴巴路由
+    kapt alibaba.arouter_compiler
+    //奶油刀
+    kapt "com.jakewharton:butterknife-compiler:$butterknife_version"
+
+    if (isModule.toBoolean()) {
+        compile project(':lib_common')
+    } else {
+        compile project(':Module_Bottomtab0')
+        compile project(':Module_Bottomtab1')
+        compile project(':Module_Bottomtab2')
+        compile project(':Module_Bottomtab3')
+        compile project(':Module_Bottomtab4')
+        compile project(':Module_Login')
+
+    }
+
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    }
+}
+
+
+//由于视频版本不一直，所以这里要转换版本
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion build_versions.build_tools//默认使用的版本
+            }
+        }
+    }
+}

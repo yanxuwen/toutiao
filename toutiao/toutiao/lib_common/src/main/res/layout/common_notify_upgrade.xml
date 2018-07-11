@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="5dip"
+        android:layout_margin="5dp"
+        android:src="@mipmap/common_ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/DIMEN_10DP"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textprogress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dip"
+            style="@style/common_NotificationTitle"
+            android:textColor="#000000"
+            />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:indeterminate="false" />
+
+            <TextView
+                android:id="@+id/download_complete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/common_NotificationText"
+                />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

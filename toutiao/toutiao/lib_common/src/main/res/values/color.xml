@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_colorPrimary">#D33D3C</color>
+    <color name="common_colorPrimaryDark">#D33D3C</color>
+    <color name="common_colorAccent">#D33D3C</color>
+
+    <color name="common_orange">#ff5722</color>
+    <color name="common_ripplecolor">#B2f7f7f7</color>
+    <color name="common_ripplecolor2">#c8c8c8</color>
+    <color name="common_background">#ffffff</color>
+    <color name="common_title">#00aaff</color>
+    <color name="title">@color/common_title</color>
+    <color name="common_blue">#00aaff</color>
+    <color name="common_deep_blue">#406599</color>
+    <color name="common_white">#ffffff</color>
+    <color name="common_red">#f85959</color>
+    <color name="common_black">#313438</color>
+    <color name="common_black70">#B2000000</color>
+    <color name="common_black40">#66000000</color>
+    <color name="common_gray">#888888</color>
+    <color name="common_gray2">#f0f0f0</color>
+
+    <color name="common_gray_30">#4c888888</color>
+
+    <color name="common_gray100">#dddddd</color>
+    <color name="common_menu_click">@color/common_basic</color>
+    <color name="common_basic">#00aaff</color>
+    <color name="common_divider">#f0f0f0</color>
+
+    <color name="style_color">@color/common_red</color>
+
+</resources>

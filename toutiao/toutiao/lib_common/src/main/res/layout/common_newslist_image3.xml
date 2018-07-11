@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?><!--右侧图片跟右侧视频-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_image3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/DIMEN_15DP"
+        android:paddingRight="@dimen/DIMEN_15DP"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_image3"
+                android:layout_width="@dimen/DIMEN_110DP"
+                android:layout_height="@dimen/DIMEN_80DP"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/DIMEN_10DP"
+                android:layout_marginTop="@dimen/DIMEN_10DP"
+                tools:src="@mipmap/icon" />
+            <TextView
+                android:id="@+id/tv_image3_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_image3"
+                android:layout_alignRight="@id/iv_image3"
+                android:layout_margin="@dimen/DIMEN_5DP"
+                android:background="@drawable/common_shape_corners_solid_mask"
+                android:includeFontPadding="false"
+                android:paddingBottom="@dimen/DIMEN_3DP"
+                android:paddingLeft="@dimen/DIMEN_10DP"
+                android:paddingRight="@dimen/DIMEN_10DP"
+                android:paddingTop="@dimen/DIMEN_3DP"
+                android:textColor="@color/white"
+                android:textSize="@dimen/DIMEN_11SP"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="13:17" />
+
+            <TextView
+                android:layout_alignTop="@id/iv_image3"
+                android:id="@+id/tv_image3_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/DIMEN_10DP"
+                android:layout_marginTop="@dimen/DIMEN_2DP"
+                android:layout_toLeftOf="@id/iv_image3"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_article_title"
+                tools:text="001A航母下水一周年：主錨喷水央视直播摄像机就位 " />
+
+
+            <RelativeLayout
+                android:id="@+id/layout_image3_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/iv_image3"
+                android:layout_below="@id/tv_image3_title"
+                android:layout_marginBottom="@dimen/DIMEN_10DP"
+                android:layout_marginTop="@dimen/DIMEN_15DP"
+                android:ellipsize="end"
+                android:maxLines="2">
+
+                <include
+                    android:id="@+id/tv_image3_x"
+                    layout="@layout/common_x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/tv_image3_x">
+
+                    <TextView
+                        android:id="@+id/tv_image3_ad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/DIMEN_7DP"
+                        android:background="@drawable/common_shape_corners_hollow_blue"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/DIMEN_2DP"
+                        android:paddingLeft="@dimen/DIMEN_3DP"
+                        android:paddingRight="@dimen/DIMEN_3DP"
+                        android:paddingTop="@dimen/DIMEN_2DP"
+                        android:text="@string/common_ad"
+                        android:textColor="@color/common_blue"
+                        android:textSize="@dimen/DIMEN_8SP"
+                        android:visibility="gone"
+                        tools:visibility="gone" />
+                    <TextView
+                        android:id="@+id/tv_image3_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/DIMEN_7DP"
+                        android:background="@drawable/common_shape_corners_hollow_red"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/DIMEN_2DP"
+                        android:paddingLeft="@dimen/DIMEN_3DP"
+                        android:paddingRight="@dimen/DIMEN_3DP"
+                        android:paddingTop="@dimen/DIMEN_2DP"
+                        tools:text="置顶"
+                        android:textColor="@color/common_red"
+                        android:textSize="@dimen/DIMEN_8SP"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+                    <TextView
+                        android:id="@+id/tv_image3_author"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/tv_image3_label"
+                        android:layout_toRightOf="@+id/tv_image3_ad"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/common_article_author"
+                        tools:text="迷彩青春 81评论" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_05DP"
+            android:background="@color/common_divider" />
+    </LinearLayout>
+</RelativeLayout>

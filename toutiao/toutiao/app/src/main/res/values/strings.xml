@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">今日头条</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!--菜单-->
+    <string name="menu_1">首页</string>
+    <string name="menu_2">西瓜视频</string>
+    <string name="menu_3">微头条</string>
+    <string name="menu_4">小视频</string>
+    <string name="agin_exit">再按一次退出</string>
+
+
+
+</resources>

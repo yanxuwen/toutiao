@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ActivityTransitions" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/common_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/common_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/common_close_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/common_close_exit</item>
+    </style>
+
+
+    <!--textview-->
+    <style name="textview_nopd">
+        <item name="android:textSize">@dimen/DIMEN_15DP</item>
+        <item name="android:textColor">@color/text_nor</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+</resources>

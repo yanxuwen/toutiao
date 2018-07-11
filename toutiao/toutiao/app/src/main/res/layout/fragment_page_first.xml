@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/layout_guide"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ContentDescription"
+    tools:background="@android:color/holo_orange_dark">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_250DP"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btn_experience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/selector_guide_btn"
+            android:paddingBottom="@dimen/DIMEN_12DP"
+            android:paddingLeft="@dimen/DIMEN_50DP"
+            android:paddingRight="@dimen/DIMEN_50DP"
+            android:paddingTop="@dimen/DIMEN_12DP"
+            android:text="一键开启"
+            android:textColor="@color/common_text_blue_white"
+            android:textSize="@dimen/DIMEN_20DP" />
+    </RelativeLayout>
+</RelativeLayout>

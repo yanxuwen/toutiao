@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.yanxuwen.lib_common">
+    <application android:allowBackup="true"
+        android:theme="@style/common_SlideAppTheme"
+        android:supportsRtl="true">
+        <service android:name=".update.UpgradeService" />
+        <activity
+            android:name=".TransparentActivity" />
+        <activity
+            android:name=".widget.DragPhotoView.MyImageShowActivity" />
+        <activity
+            android:name=".widget.MyDragViewActivity" />
+    </application>
+
+</manifest>

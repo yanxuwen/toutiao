@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--时间-->
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_count"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_shape_corners_solid_mask"
+    android:paddingLeft="@dimen/DIMEN_10DP"
+    android:paddingRight="@dimen/DIMEN_10DP"
+    android:paddingTop="@dimen/DIMEN_3DP"
+    android:paddingBottom="@dimen/DIMEN_3DP"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="@dimen/DIMEN_10DP"
+    tools:text="13图"
+    android:includeFontPadding="false"
+    android:textColor="@color/white"
+    android:textSize="@dimen/DIMEN_8SP" />

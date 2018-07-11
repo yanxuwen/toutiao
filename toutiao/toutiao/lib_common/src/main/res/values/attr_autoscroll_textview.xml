@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="autoScrollHeight">
+        <attr name="textSize" format="dimension"/>
+        <attr name="padding" format="dimension"/>
+        <attr name="animDuration" format="integer"/>
+        <attr name="scrollDuration" format="integer"/>
+        <attr name="textColor" format="color"/>
+    </declare-styleable>
+</resources>

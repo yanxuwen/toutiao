@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_video"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:visibility="visible">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="?android:attr/selectableItemBackground">
+
+        <com.yanxuwen.lib_common.Utils.video.SampleCoverVideo
+            android:id="@+id/layout_player"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_200DP" />
+        <RelativeLayout
+            android:id="@+id/layout_video_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@id/layout_player"
+            android:layout_alignBottom="@+id/layout_player"
+            >
+
+            <TextView
+                android:id="@+id/tv_video_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/DIMEN_10DP"
+                android:background="@drawable/common_shape_corners_solid_mask"
+                android:includeFontPadding="false"
+                android:paddingBottom="@dimen/DIMEN_3DP"
+                android:paddingLeft="@dimen/DIMEN_10DP"
+                android:paddingRight="@dimen/DIMEN_10DP"
+                android:paddingTop="@dimen/DIMEN_3DP"
+                android:textColor="@color/white"
+                android:textSize="@dimen/DIMEN_13SP"
+                tools:text="13图" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_author"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_40DP"
+            android:layout_below="@id/layout_video_image"
+            android:paddingLeft="@dimen/DIMEN_15DP"
+            android:paddingRight="@dimen/DIMEN_15DP">
+
+            <ImageView
+                android:id="@+id/tv_video_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/common_ic_more" />
+
+            <TextView
+                android:id="@+id/tv_video_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/DIMEN_15DP"
+                android:layout_toLeftOf="@id/tv_video_more"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_article_author"
+                tools:text="2912评论" />
+
+            <TextView
+                android:id="@+id/tv_video_follow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/DIMEN_25DP"
+                android:layout_toLeftOf="@id/tv_video_comment"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_article_author"
+                tools:text="关注" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/tv_video_follow"
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_video_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/common_article_author"
+                    tools:text="迷彩青春" />
+
+                <TextView
+                    android:id="@+id/tv_video_ad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/DIMEN_10DP"
+                    android:layout_toRightOf="@id/tv_video_author"
+                    android:background="@drawable/common_shape_corners_hollow_blue"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingBottom="@dimen/DIMEN_2DP"
+                    android:paddingLeft="@dimen/DIMEN_3DP"
+                    android:paddingRight="@dimen/DIMEN_3DP"
+                    android:paddingTop="@dimen/DIMEN_2DP"
+                    android:text="@string/common_ad"
+                    android:textColor="@color/common_blue"
+                    android:textSize="@dimen/DIMEN_8SP"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <cn.carbs.android.avatarimageview.library.AvatarImageView
+            android:id="@+id/iv_headbg"
+            android:layout_width="@dimen/DIMEN_48DP"
+            android:layout_height="@dimen/DIMEN_48DP"
+            android:layout_alignBottom="@id/layout_author"
+            android:layout_marginBottom="@dimen/DIMEN_28DP"
+            android:layout_marginLeft="@dimen/DIMEN_13DP"/>
+        <cn.carbs.android.avatarimageview.library.AvatarImageView
+            android:id="@+id/iv_head"
+            android:layout_width="@dimen/DIMEN_44DP"
+            android:layout_height="@dimen/DIMEN_44DP"
+            android:layout_alignBottom="@id/layout_author"
+            android:layout_marginBottom="@dimen/DIMEN_30DP"
+            android:layout_marginLeft="@dimen/DIMEN_15DP"
+            tools:src="@mipmap/icon" />
+    </RelativeLayout>
+</RelativeLayout>
