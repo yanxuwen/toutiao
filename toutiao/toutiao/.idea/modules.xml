@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/Module_Bottomtab3/Module_Bottomtab3.iml" filepath="$PROJECT_DIR$/Module_Bottomtab3/Module_Bottomtab3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Module_Bottomtab4/Module_Bottomtab4.iml" filepath="$PROJECT_DIR$/Module_Bottomtab4/Module_Bottomtab4.iml" />
       <module fileurl="file://$PROJECT_DIR$/Module_Login/Module_Login.iml" filepath="$PROJECT_DIR$/Module_Login/Module_Login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Utils/MyUtils/MyUtils.iml" filepath="$PROJECT_DIR$/../../Utils/MyUtils/MyUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../MyApplication/Utils/MyUtils/MyUtils.iml" filepath="$PROJECT_DIR$/../../MyApplication/Utils/MyUtils/MyUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />

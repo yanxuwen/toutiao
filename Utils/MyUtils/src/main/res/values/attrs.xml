@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlowLayout">
+        <attr format="dimension" name="lineSpacing"/>
+        <attr format="integer" name="maxLine"/>
+    </declare-styleable>
+    <!-- ExpandTextView -->
+    <declare-styleable name="ExpandTextView">
+        <!-- 文本颜色 -->
+        <attr name="expandtextColor" format="color|reference"/>
+        <!-- 最大显示文本行数 -->
+        <attr name="expandmaxLines" format="integer|reference"/>
+        <!-- 文本字体大小 -->
+        <attr name="expandtextSize" format="dimension|reference"/>
+        <!-- 动画显示时间-->
+        <attr name="expandanimDuration" format="integer|reference"/>
+        <!-- 提示图标的宽度 -->
+        <attr name="expanddrawableWidth" format="dimension|reference"/>
+        <!-- 提示图标的高度 -->
+        <attr name="expanddrawableHeight" format="dimension|reference"/>
+        <!-- 展开时候的提示图标 -->
+        <attr name="expandDrawable" format="color|reference"/>
+        <!-- 收缩收起时候的提示图标 -->
+        <attr name="expandshrinkDrawable" format="color|reference"/>
+    </declare-styleable>
+
+
+
+    <!--Banner无限轮播属性-->
+    <declare-styleable name="BannerView">
+        <attr name="bannerPageMargin" format="dimension"/>
+        <attr name="bannerPagePercent" format="float"/>
+        <attr name="bannerPageScale" format="float"/>
+        <attr name="bannerPageAlpha" format="float"/>
+        <attr name="bannerScrollDuration" format="integer"/>
+        <attr name="bannerAnimDuration" format="integer"/>
+        <attr name="bannerAnimScroll" format="boolean"/>
+        <attr name="bannerAutoScroll" format="boolean"/>
+        <attr name="isDots" format="boolean"/>
+
+    </declare-styleable>
+
+    <!--BottomNavigationView-->
+    <declare-styleable name="BottomNavigationView">
+        <!--文字颜色-->
+        <attr name="colorActive" format="color"/>
+        <attr name="colorInactive" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="DropDownMenu">
+
+        <attr name="ddunderlineColor" format="color"/>
+        <attr name="dddividerColor" format="color"/>
+        <attr name="ddtextSelectedColor" format="color"/>
+        <attr name="ddtextUnselectedColor" format="color"/>
+        <attr name="ddmenuBackgroundColor" format="color"/>
+        <attr name="ddmaskColor" format="color"/>
+        <attr name="ddmenuTextSize" format="dimension"/>
+        <attr name="ddmenuSelectedIcon" format="reference"/>
+        <attr name="ddmenuUnselectedIcon" format="reference"/>
+        <attr name="ddmenuMenuHeightPercent" format="float"/>
+    </declare-styleable>
+    </resources>

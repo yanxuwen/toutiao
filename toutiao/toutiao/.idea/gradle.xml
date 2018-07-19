@@ -8,7 +8,7 @@
         <option name="gradleHome" value="$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/55gk2rcmfc6p2dg9u9ohc3hw9/gradle-3.3" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../../MyApplication/Utils/MyUtils" />
+            <option value="$PROJECT_DIR$/../../Utils/MyUtils" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Module_Bottomtab0" />
             <option value="$PROJECT_DIR$/Module_Bottomtab1" />
