@@ -1,4 +1,5 @@
 模仿今日头条app，除了有涉及到用户的东西没有以外，几乎实现了所有功能，下面是效果图。
+【注意】更改settings.gradle 下的P:/WorkSpace/github/toutaio/Utils/路径改成你自己的路径
 
 ![1.png](https://upload-images.jianshu.io/upload_images/6835615-291cf8a92e2cef3b.png)
 ![1.png](https://upload-images.jianshu.io/upload_images/6835615-813fd7b182f797dd.png)
