@@ -28,39 +28,30 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25+'
     compile 'com.yanxuwen.sliding:lib:+'
     compile files('libs/nineoldandroids2.jar')
 
     //列表
-    compile 'com.yanxuwen.MyRecyclerView:MyRecyclerview:1.5.5'
-    //抽屉
-    compile 'com.yanxuwen.mydrawer:mydrawer:1.1.4'
+    compile 'com.yanxuwen.MyRecyclerView:MyRecyclerview:1.5.8'
     //时间选择器
-    compile 'com.yanxuwen.pickerview:pickerview:1.1.4'
+//    compile 'com.yanxuwen.pickerview:pickerview:+'
     //retrofit
-    compile 'com.yanxuwen.retrofit:retrofit:1.1.8'
+    compile 'com.yanxuwen.retrofit:retrofit:1.1.9'
     //myutils
-    compile 'com.yanxuwen.myutils:myutils:1.2.3'
-    // 注入式框架
-    compile 'com.jakewharton:butterknife:7.0.1'
-    //可拖动浏览图片
-    compile 'com.github.MrWangChong:DragPhotoView:+'
+    compile 'com.yanxuwen.myutils:myutils:1.2.7'
     //对话框
-    compile 'me.drakeet.materialdialog:library:1.3.1'
+//    compile 'me.drakeet.materialdialog:library:1.3.1'
     //轮播图片
-    compile 'com.youth.banner:banner:+'
+//    compile 'com.youth.banner:banner:+'
     //权限
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
     //图片选择器
-    compile 'cn.finalteam:galleryfinal:1.4.8.7'
+//    compile 'cn.finalteam:galleryfinal:1.4.8.7'
     //底部栏
     compile 'com.github.armcha:LuseenBottomNavigation:1.8.2'
-    //二维码
-    compile 'cn.yipianfengye.android:zxing-library:+'
+//    //二维码
+//    compile 'cn.yipianfengye.android:zxing-library:+'
     //指示器
     compile 'com.github.hackware1993:MagicIndicator:1.5.0'
-
-
 }
+

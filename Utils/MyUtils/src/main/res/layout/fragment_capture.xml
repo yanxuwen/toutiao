@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--二维码-->
+    <!--二维码-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" >
 
-    <SurfaceView
-        android:id="@+id/preview_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+<!--<SurfaceView-->
+    <!--android:id="@+id/preview_view"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--/>-->
 
-    <com.zhengchen.weight.QRcode.ViewfinderView
-        android:id="@+id/viewfinder_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:inner_width="300dp"
-        app:inner_height="300dp"
-        app:inner_margintop="150dp"
-        app:inner_corner_color="#45DDDD"
-        app:inner_corner_length="30dp"
-        app:inner_corner_width="5dp"
-        app:inner_scan_speed="5"
-        app:inner_scan_bitmap="@null"
-        app:inner_scan_iscircle="false"
-        />
+<!--<com.zhengchen.weight.QRcode.ViewfinderView-->
+    <!--android:id="@+id/viewfinder_view"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:inner_width="300dp"-->
+    <!--app:inner_height="300dp"-->
+    <!--app:inner_margintop="150dp"-->
+    <!--app:inner_corner_color="#45DDDD"-->
+    <!--app:inner_corner_length="30dp"-->
+    <!--app:inner_corner_width="5dp"-->
+    <!--app:inner_scan_speed="5"-->
+    <!--app:inner_scan_bitmap="@null"-->
+    <!--app:inner_scan_iscircle="false"-->
+    <!--/>-->
 
 </FrameLayout>

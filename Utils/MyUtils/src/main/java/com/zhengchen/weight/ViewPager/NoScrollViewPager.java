@@ -3,6 +3,7 @@ package com.zhengchen.weight.ViewPager;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 
 /**
@@ -38,13 +39,27 @@ public class NoScrollViewPager extends ViewPager {
         super.scrollTo(x, y);
     }
 
+    float downX=0;
+    float downY=0;
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        Log.e("xxx","xxxxxxxxxxxxxxxxxxx"+event);
+        return super.dispatchTouchEvent(event);
+    }
+
     @Override
-    public boolean onTouchEvent(MotionEvent arg0) {
-        /* return false;//super.onTouchEvent(arg0); */
-        if (noScroll)
-            return false;
+    public boolean onTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:{
+                return false;
+            }
+            case MotionEvent.ACTION_MOVE:{
+                Log.e("xxx","xxxxxxxxxxxxxxxxxxx");
+            }
+        }
+        if (noScroll)return false;
+
         else
-            return super.onTouchEvent(arg0);
+            return super.onTouchEvent(ev);
     }
 
     @Override

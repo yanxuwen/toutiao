@@ -34,7 +34,7 @@ public class BottomNavigationView extends RelativeLayout {
 
     private Context context;
 
-    private final int NAVIGATION_HEIGHT = (int) getResources().getDimension(com.luseen.luseenbottomnavigation.R.dimen.bottom_navigation_height);
+    private final int NAVIGATION_HEIGHT = (int) getResources().getDimension(R.dimen.bottom_navigation_height);
 
     private final int NAVIGATION_LINE_WIDTH = (int) getResources().getDimension(R.dimen.bottom_navigation_line_width);
 
@@ -42,7 +42,7 @@ public class BottomNavigationView extends RelativeLayout {
 
     private float textInactiveSize;
 
-    private List<BottomNavigationItem> bottomNavigationItems = new ArrayList<>();
+    public List<BottomNavigationItem> bottomNavigationItems = new ArrayList<>();
 
     private List<View> viewList = new ArrayList<>();
 
@@ -253,8 +253,8 @@ public class BottomNavigationView extends RelativeLayout {
             if (i == currentItem) {
                 container.setBackgroundColor(bottomNavigationItems.get(index).getColor());
                 title.setTextColor(colorActive);
-                icon.setScaleX((float) 1.2);
-                icon.setScaleY((float) 1.2);
+//                icon.setScaleX((float) 1.2);
+//                icon.setScaleY((float) 1.2);
             }
 
             if (isTablet)
@@ -313,11 +313,11 @@ public class BottomNavigationView extends RelativeLayout {
                     BottomNavigationUtils.changeViewTopPadding(view, withText ? viewInactivePaddingTop : viewInactivePaddingTopWithoutText, 0);
                 }
 
-                icon.animate()
-                        .setDuration(150)
-                        .scaleX((float) 1.2)
-                        .scaleY((float) 1.2)
-                        .start();
+//                icon.animate()
+//                        .setDuration(150)
+//                        .scaleX((float) 1.2)
+//                        .scaleY((float) 1.2)
+//                        .start();
 
                 if (isTablet) {
                     centerX = viewList.get(itemIndex).getWidth() / 2;
@@ -363,11 +363,11 @@ public class BottomNavigationView extends RelativeLayout {
                 else
                     BottomNavigationUtils.changeViewTopPadding(view, viewActivePaddingTop, withText ? viewInactivePaddingTop : viewInactivePaddingTopWithoutText);
 
-                icon.animate()
-                        .setDuration(150)
-                        .scaleX((float) 0.9)
-                        .scaleY((float) 0.9)
-                        .start();
+//                icon.animate()
+//                        .setDuration(150)
+//                        .scaleX((float) 0.9)
+//                        .scaleY((float) 0.9)
+//                        .start();
             }
         }
 
@@ -552,4 +552,9 @@ public class BottomNavigationView extends RelativeLayout {
 //            return bottomNavigationItems.get(position);
 //        }
 //    }
+    public ImageView getItemIcon(int position){
+        View view = viewList.get(position);
+        return (ImageView) view.findViewById(com.luseen.luseenbottomnavigation.R.id.bottom_navigation_item_icon);
+
+    }
 }

@@ -31,11 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="2dp"
         android:duplicateParentState="true"
         android:scaleType="fitCenter"
-        android:scaleY=".9"
-        android:scaleX=".9"
+        android:scaleY="1"
+        android:scaleX="1"
         android:layout_centerHorizontal="true"
         android:gravity="center" />
 

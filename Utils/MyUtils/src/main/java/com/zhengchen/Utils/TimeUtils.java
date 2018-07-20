@@ -1,6 +1,5 @@
 package com.zhengchen.Utils;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,16 +11,20 @@ import java.util.TimeZone;
 
 public class TimeUtils {
     /**
-     * 转换指定格式，如yyyy-MM-dd hh:mm
+     * 转换指定格式，如yyyy-MM-dd HH:mm,单位毫秒
+     * 注意：HH为大写的话，则是24小时，hh为小写，则12小时
      */
     public static String getStrTime(String cc_time,String geshi) {
         String re_StrTime = null;
         //同理也可以转为其它样式的时间格式.例如："yyyy/MM/dd HH:mm"
         SimpleDateFormat sdf = new SimpleDateFormat(geshi);
-        // 例如：cc_time=1291778220
         long lcc_time = Long.valueOf(cc_time);
-        re_StrTime = sdf.format(new Date(lcc_time));
+        try {
+            re_StrTime = sdf.format(new Date(lcc_time));
+        }catch (Exception e){
+            re_StrTime = sdf.format(new Date(lcc_time*1000));
 
+        }
         return re_StrTime;
     }
 
@@ -40,7 +43,7 @@ public class TimeUtils {
         }
         SimpleDateFormat formatter = new SimpleDateFormat(geshi);
         formatter.setTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        return formatter.format(cc_time);
+        return formatter.format(time);
     }
     /**
      * 时长转换为字符串，比如视频时长。
@@ -68,24 +71,16 @@ public class TimeUtils {
         time=time+"″";
         return time;
     }
-    /**
-     * 获取时间相差，如，几分钟前，几小时前，限制12小时，超过则显示月份，不显示年
-     */
+
+        /**
+         * 获取时间相差，如，几分钟前，几小时前，限制12小时，超过则显示月份，不显示年
+         */
     public static String getTimeDifference(String time){
         if(time==null)return "";
         Date currentDate = new Date();
-        Date date = null;
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try {
-            date = sdf.parse(time);
-        } catch (ParseException e) {
-            SimpleDateFormat sdf2=new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            try {
-                date = sdf2.parse(time);
-            } catch (ParseException e1) {
-                return time;
-            }
-        }
+        long lcc_time = Long.valueOf(time);
+        Date date = new Date(lcc_time);
+
         long diffTime=currentDate.getTime()-date.getTime();
         if(diffTime<=24*60*60*1000){//几小时前
             if(diffTime<=24*60*60*1000&&diffTime>=1*60*60*1000){
@@ -113,15 +108,15 @@ public class TimeUtils {
         else{
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
-
-            Calendar current = Calendar.getInstance();
-            current.setTimeInMillis(System.currentTimeMillis());
-            if(diffTime<=7*24*60*60*1000){
-                return diffTime/(24*60*60*1000)+"天前";
-            }else{
+//
+//            Calendar current = Calendar.getInstance();
+//            current.setTimeInMillis(System.currentTimeMillis());
+//            if(diffTime<=7*24*60*60*1000){
+//                return diffTime/(24*60*60*1000)+"天前";
+//            }else{
                 //去掉年份
-                return (cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DAY_OF_MONTH)+" "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+"";
-            }
+                return getStrTime(time+"","MM-dd HH:mm");
+//            }
         }
     }
 }
