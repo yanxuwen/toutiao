@@ -89,7 +89,7 @@ class BottomTab3Fragment : MyFragment(), View.OnClickListener, ViewPager.OnPageC
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val clipPagerTitleView = ScaleClipPagerTitleView(context)
                 clipPagerTitleView.text = list_title[index]
-                clipPagerTitleView.textSize = UIUtil.dip2px(context, 18.1).toFloat()
+                clipPagerTitleView.textSize = UIUtil.dip2px(context, 19.1).toFloat()
                 clipPagerTitleView.setBackgroundDrawable(context.resources.getDrawable(R.drawable.common_selector_ripple))
                 clipPagerTitleView.textColor = context.resources.getColor(R.color.common_black)
                 clipPagerTitleView.clipColor = context.resources.getColor(R.color.bt3_tab)

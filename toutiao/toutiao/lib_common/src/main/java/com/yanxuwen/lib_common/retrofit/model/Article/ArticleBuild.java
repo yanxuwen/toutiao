@@ -1,4 +1,4 @@
-package com.yanxuwen.lib_common.retrofit.model.Html;
+package com.yanxuwen.lib_common.retrofit.model.Article;
 
 import android.content.Context;
 
@@ -9,8 +9,8 @@ import com.yanxuwen.retrofit.Annotation.Description;
  * Created by yanxuwen on 2018/6/6.
  */
 @Description("获取html代码片段")
-public class HtmlBuild extends MyBaseRequest {
-    public HtmlBuild(Context context) {
+public class ArticleBuild extends MyBaseRequest {
+    public ArticleBuild(Context context) {
         super(context);
         // TODO Auto-generated constructor stub
     }

@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/DIMEN_10DP"
-                android:background="@drawable/common_shape_corners_solid_gray"
+                android:background="@drawable/common_shape_corners_solid_gray2"
                 android:paddingBottom="@dimen/DIMEN_5DP"
                 android:paddingLeft="@dimen/DIMEN_10DP"
                 android:paddingRight="@dimen/DIMEN_10DP"

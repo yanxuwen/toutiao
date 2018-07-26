@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_atlases_drag"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    >
+    <RelativeLayout
+        android:id="@+id/layout_atlases_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/DIMEN_20DP"
+        >
+        <ImageView
+            android:id="@+id/iv_atlases_close"
+            android:layout_width="@dimen/DIMEN_25DP"
+            android:layout_height="@dimen/DIMEN_25DP"
+            android:layout_margin="@dimen/DIMEN_15DP"
+            android:layout_centerVertical="true"
+            android:src="@drawable/common_ic_close" />
+
+        <ImageView
+            android:id="@+id/iv_atlases_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/DIMEN_10DP"
+            android:layout_marginBottom="@dimen/DIMEN_15DP"
+            android:layout_marginTop="@dimen/DIMEN_15DP"
+            android:layout_marginRight="@dimen/DIMEN_15DP"
+            android:src="@drawable/common_ic_more" />
+        <TextView
+            android:id="@+id/tv_atlases_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/DIMEN_10DP"
+            android:layout_toLeftOf="@id/iv_atlases_menu"
+            android:background="@drawable/common_shape_corners_solid_red"
+            android:paddingBottom="@dimen/DIMEN_3DP"
+            android:paddingLeft="@dimen/DIMEN_10DP"
+            android:paddingRight="@dimen/DIMEN_10DP"
+            android:paddingTop="@dimen/DIMEN_3DP"
+            android:text="@string/common_follow"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/DIMEN_13SP" />
+        <RelativeLayout
+            android:layout_toRightOf="@id/iv_atlases_close"
+            android:layout_toLeftOf="@id/tv_atlases_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingBottom="@dimen/DIMEN_10DP"
+            android:paddingTop="@dimen/DIMEN_10DP">
+
+            <ImageView
+                android:id="@+id/iv_atlases_head"
+                android:layout_width="@dimen/DIMEN_35DP"
+                android:layout_height="@dimen/DIMEN_35DP"
+                android:src="@mipmap/icon" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/DIMEN_10DP"
+                android:layout_toRightOf="@id/iv_atlases_head"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/DIMEN_10DP">
+
+            <TextView
+                android:id="@+id/tv_atlases_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/DIMEN_16SP"
+                android:textStyle="bold"
+                tools:text="农民伯乐" />
+
+            <TextView
+                android:id="@+id/tv_atlases_fans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_atlases_author"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/DIMEN_14SP"
+
+                tools:text="18.6万粉丝" />
+               </LinearLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@color/common_black40"
+
+        >
+    <TextView
+        android:id="@+id/tv_atlases_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/DIMEN_15DP"
+        android:textSize="@dimen/DIMEN_15SP"
+        tools:text="2/4"
+        android:textColor="@color/common_white"
+        />
+        <include
+            layout="@layout/common_comment_menu"
+            />
+        </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone"
+        >
+        <include
+            layout="@layout/common_drag_comments" />
+    </RelativeLayout>
+</RelativeLayout>

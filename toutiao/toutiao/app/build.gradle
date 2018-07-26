@@ -83,8 +83,8 @@ android {
     productFlavors {
         toutiao {
             applicationId "com.example.app.toutiao"
-            versionCode 6
-            versionName "6.6.6"
+            versionCode 7
+            versionName "6.6.7"
         }
     }
     }

@@ -218,7 +218,6 @@
         >
 
         <include
-            android:id="@+id/common_drag_comments"
             layout="@layout/common_drag_comments" />
     </RelativeLayout>
 </RelativeLayout>

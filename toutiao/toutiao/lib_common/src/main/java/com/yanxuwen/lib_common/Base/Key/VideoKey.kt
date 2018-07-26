@@ -5,7 +5,9 @@ package com.yanxuwen.module_bottomtab0.Bean.Key
  */
 public class VideoKey{
     companion object {
+        val Article="Article"
         val NewsContent="NewsContent"
+
         val seek="seek"
 
     }

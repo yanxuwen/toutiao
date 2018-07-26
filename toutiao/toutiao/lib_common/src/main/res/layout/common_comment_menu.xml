@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?><!--评论菜单-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="@dimen/DIMEN_7DP"
+    android:layout_marginLeft="@dimen/DIMEN_15DP"
+    android:layout_marginRight="@dimen/DIMEN_15DP"
+    android:layout_marginTop="@dimen/DIMEN_15DP"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/common_shape_corners_solid_gray">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/DIMEN_13DP"
+            android:layout_height="@dimen/DIMEN_13DP"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/DIMEN_15DP"
+            android:src="@mipmap/common_write" />
+
+
+        <ImageView
+            android:id="@+id/iv_enjoy"
+            android:layout_width="@dimen/DIMEN_18DP"
+            android:layout_height="@dimen/DIMEN_18DP"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/DIMEN_15DP"
+            android:src="@drawable/common_ic_emoji" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/iv_enjoy"
+            android:layout_toRightOf="@id/iv_icon"
+            android:drawablePadding="@dimen/DIMEN_5DP"
+            android:paddingBottom="@dimen/DIMEN_5DP"
+            android:paddingLeft="@dimen/DIMEN_10DP"
+            android:paddingRight="@dimen/DIMEN_10DP"
+            android:paddingTop="@dimen/DIMEN_5DP"
+            android:text="@string/common_write_a_comment"
+            android:textColor="@color/white"
+            android:textSize="@dimen/DIMEN_14SP" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/tv_comment_icon"
+                android:layout_width="@dimen/DIMEN_22DP"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/common_ic_comment" />
+
+            <TextView
+                android:id="@+id/tv_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/tv_comment_icon"
+                android:layout_marginTop="@dimen/DIMEN_2DP"
+                android:background="@drawable/common_shape_corners_solid_red"
+                android:paddingLeft="@dimen/DIMEN_2DP"
+                android:paddingRight="@dimen/DIMEN_2DP"
+                android:text="21"
+                android:textColor="@color/common_white"
+                android:textSize="@dimen/DIMEN_6SP" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/common_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/DIMEN_27DP"
+            android:layout_centerInParent="true"
+            android:src="@drawable/common_ic_collection" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_24DP"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:src="@drawable/common_ic_share2" />
+    </LinearLayout>
+</LinearLayout>

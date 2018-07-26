@@ -16,7 +16,9 @@ import com.yanxuwen.retrofit.Msg.Publisher
 /**
  * Created by yanxuwen on 2018/1/22.
  */
-open class MyFragment : MFragment() , MyObserverListener {
+open class MyFragment : MFragment , MyObserverListener {
+    constructor():super(0){}
+    constructor(position :Int):super(position){}
     open val mRequestUtils: RequestUtils by lazy {
         RequestUtils(activity, this)
     }

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--寺庙关注空状态-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/emptyview_network"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/common_black"
+    android:background="@color/transparent"
     android:gravity="center"
     android:paddingBottom="@dimen/DIMEN_50DP"
     android:visibility="gone"
+    tools:visibility="visible"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,10 +20,10 @@
         android:layout_centerInParent="true">
         <ImageView
             android:id="@+id/iv_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_100DP"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/common_ic_launcher"
+            android:src="@mipmap/common_no_network"
             />
         <TextView
             android:id="@+id/tv_error"

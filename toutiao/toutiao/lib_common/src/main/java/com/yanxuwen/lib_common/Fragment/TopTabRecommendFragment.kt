@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.yanxuwen.MyRecyclerview.MyRecyclerView
 import com.yanxuwen.MyRecyclerview.MySwipeRefreshLayout
@@ -16,17 +18,24 @@ import com.yanxuwen.lib_common.Base.MyFragment
 import com.yanxuwen.lib_common.Bean.ARouterPath
 import com.yanxuwen.lib_common.R
 import com.yanxuwen.lib_common.Utils.Divider.DividerGridItemDecoration
+import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.optionsRound
 import com.yanxuwen.lib_common.Utils.MyRecyclerViewUtils
+import com.yanxuwen.lib_common.Utils.video.VideoInfoUtils
 import com.yanxuwen.lib_common.Utils.video.VideoListUtils
 import com.yanxuwen.lib_common.retrofit.Msg.Msg
-import com.yanxuwen.lib_common.retrofit.model.Html.Html
+import com.yanxuwen.lib_common.retrofit.model.Article.Article
 import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsContent
 import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsList
 import com.yanxuwen.lib_common.retrofit.model.NewsList.SoonVideo
+import com.yanxuwen.lib_common.widget.Drawer.CommentDragLayout
+import com.yanxuwen.lib_common.widget.Drawer.ReplyDragLayout
 import com.yanxuwen.module_bottomtab0.Bean.Key.VideoKey
 import com.yanxuwen.retrofit.GsonUtils
 import com.yanxuwen.retrofit.Msg.ObserverListener
 import kotlinx.android.synthetic.main.common_activity_recyclerview.view.*
+import kotlinx.android.synthetic.main.common_atlases.view.*
+import kotlinx.android.synthetic.main.common_comment_menu.view.*
+import kotlinx.android.synthetic.main.common_drag_comments.view.*
 import kotlinx.android.synthetic.main.common_newslist_video.view.*
 import kotlinx.android.synthetic.main.common_soonvideo_item.view.*
 import org.json.JSONObject
@@ -39,6 +48,7 @@ import java.util.*
 
 /**
  * Created by yanxuwen on 2017/9/7.
+ * 推荐列表
  */
 class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
     public val refreshLayout: MySwipeRefreshLayout by lazy {
@@ -47,18 +57,22 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
      interface OnRefreshingListener{
         fun onRefreshing(refreshing: Boolean)
     }
-    companion object {
-        var  lsitRefreshingListener=ArrayList<OnRefreshingListener>()
         fun addOnRefreshingListener(l:OnRefreshingListener){
-            if(!lsitRefreshingListener.contains(l)){
-                lsitRefreshingListener.add(l)
+            if(lsitRefreshingListener==null)lsitRefreshingListener=ArrayList()
+            if(!lsitRefreshingListener?.contains(l)!!){
+                lsitRefreshingListener?.add(l)
             }
         }
-        fun removeOnRefreshingListener(l:OnRefreshingListener){
-            lsitRefreshingListener.remove(l)
+    companion object {
+        var  lsitRefreshingListener:ArrayList<OnRefreshingListener>  ?=null
+        fun removeOnRefreshingListener(){
+            lsitRefreshingListener?.clear()
+            lsitRefreshingListener=null
         }
     }
-
+    fun removeOnRefreshingListener(l:OnRefreshingListener){
+        lsitRefreshingListener?.remove(l)
+    }
     var isRefresh=false
     var isSoonVideo = false
     var page = 0
@@ -66,12 +80,12 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
     var refresh_behot_time = ""
     var load_behot_time = ""
     var category: String = ""
-    var listData: ArrayList<NewsContent> = ArrayList()
+    var list_Data: ArrayList<NewsContent> = ArrayList()
     var listDataSoonVideo: ArrayList<Any> = ArrayList()
     var listSoonVideoFragment: ArrayList<Class<*>> = ArrayList()
 
     val mAdapter: NewsListAdapter by lazy {
-        NewsListAdapter(context, listData, mRequestUtils)
+        NewsListAdapter(context, list_Data, mRequestUtils)
     }
     val mSoonVideoAdapter: SoonVideoAdapter by lazy {
         SoonVideoAdapter(context, listDataSoonVideo)
@@ -138,8 +152,10 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
             flayout?.recyclerview?.adapter = mSoonVideoAdapter
             flayout?.recyclerview?.addItemDecoration(DividerGridItemDecoration(context, DividerGridItemDecoration.GRID_DIVIDER_VERTICAL, R.drawable.common_grid_divider))
             mSoonVideoAdapter.setOnItemClickListener { holder, view, position ->
-                DragViewActivity.startActivity(activity, position)
-                DragViewActivity.setOnDataListener(object : DragViewActivity.OnDataListener{
+                DragViewActivity.startActivity(activity, position,object : DragViewActivity.OnDataListener{
+                    override fun init() {
+                    }
+
                     override fun getListData(): ArrayList<Any> = listDataSoonVideo
 
                     override fun getListView(): ArrayList<View> =
@@ -153,7 +169,7 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
                         }
                     }
                     override fun onBackPressed(): Boolean {
-                        var mFragment=DragViewActivity.instance.mMPagerAdapter.getItem(DragViewActivity.instance.currentPosition) as SoonVideoFragment
+                        var mFragment=DragViewActivity.getInstance(context).mMPagerAdapter.getItem(DragViewActivity.getInstance(context).currentPosition) as SoonVideoFragment
                         return mFragment.onBackPressed()
                     }
                 })
@@ -197,15 +213,91 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
             //视频
                 mAdapter.ViewTypeVideo -> {
                     MyARouter.getInstance().build(ARouterPath.Module_Bottomtab0_VideoActiviy)
-                            .withSerializable(VideoKey.NewsContent, listData[position])
+                            .withSerializable(VideoKey.NewsContent, list_Data[position])
                             .withLong(VideoKey.seek, (holder as NewsListAdapter.ViewHolder)?.itemView?.layout_player?.currentPositionWhenPlaying?.toLong() ?: 0)
                             .navigation(context)
                 }
-            //新闻
+            //新闻,图片，图集
                 mAdapter.ViewTypeImage, mAdapter.ViewTypeWords -> {
-                    MyARouter.getInstance().build(ARouterPath.Module_Bottomtab0_NewActiviy)
-                            .withSerializable(VideoKey.NewsContent, listData[position])
-                            .navigation(context)
+                    when(mAdapter.getItemViewType(position)){
+                        //图集
+                        mAdapter.type_image,mAdapter.type_image2->{
+                            var listimage=ArrayList<Any>()
+                            var listFragment: java.util.ArrayList<Class<*>> = java.util.ArrayList()
+                            var data=list_Data[position].article
+                            if(data==null||data.data==null||data.data.gallery==null)return@setOnItemClickListener
+                            for(i in data.data.gallery.indices){
+                                listimage.add(data?.data.gallery?.get(i)?.sub_image?.url?:"")
+                                listFragment.add(AtlasesFragment::class.java)
+                            }
+                            //展开放大图片
+                            DragViewActivity.startActivity(activity, 0,object : DragViewActivity.OnDataListener{
+                                override fun init() {
+                                    if(view_atlases==null){
+                                        view_atlases=inflater.inflate(R.layout.common_atlases,null)
+                                        DragViewActivity.getInstance(context).dragViewLayout.addView(view_atlases)
+                                        Glide.with(context).load(data?.data?.h5_extra?.media?.avatar_url?:"").transition(DrawableTransitionOptions.withCrossFade()).apply(optionsRound).into(view_atlases?.iv_atlases_head!!)
+                                        view_atlases?.tv_atlases_author?.text=data?.data?.h5_extra?.media?.name
+                                        var comment_count= VideoInfoUtils().setCount(context,list_Data[position].comment_count)
+                                        if(comment_count=="0"){
+                                            view_atlases?.tv_comment_count?.visibility=View.GONE
+                                        }else{
+                                            view_atlases?.tv_comment_count?.visibility=View.VISIBLE
+                                            view_atlases?.tv_comment_count?.text=comment_count.toString()
+
+                                        }
+                                        //找不到粉丝的数量哪里取，先随便取
+                                        view_atlases?.tv_atlases_fans?.text= VideoInfoUtils().setFansCount(context, 542123)
+                                        view_atlases?.tv_comment_icon?.setOnClickListener({
+                                            if(comment_count=="0")return@setOnClickListener
+                                            (view_atlases?.common_drag_comments as CommentDragLayout).item_id = data.data?.item_id.toString()
+                                            (view_atlases?.common_drag_comments as CommentDragLayout)?.open()
+                                        })
+
+                                        DragViewActivity.getInstance(context).setOnDrawerOffsetListener { offset ->
+                                            view_atlases?.layout_atlases_head?.alpha=offset-0.3f
+                                            view_atlases?.layout_bottom?.alpha=offset-0.3f
+
+                                        }
+                                    }
+                                }
+
+                                var view_atlases:View?=null
+                                override fun getListData(): java.util.ArrayList<Any> =
+                                        listimage
+                                override fun onBackPressed(): Boolean =
+                                        when {
+                                        //如过回复评论开着，则拦截DragViewActivity的onBackPressed
+                                            (view_atlases?.common_drag_comments?.common_drag_reply as ReplyDragLayout).isOpen -> {
+                                                (view_atlases?.common_drag_comments?.common_drag_reply as ReplyDragLayout).close()
+                                                false
+                                            }
+                                        //如过评论开着，则拦截DragViewActivity的onBackPressed
+                                            (view_atlases?.common_drag_comments as CommentDragLayout).isOpen -> {
+                                                (view_atlases?.common_drag_comments as CommentDragLayout).close()
+                                                false
+                                            }
+                                            else -> true
+                                        }
+
+                                override fun getListView(): java.util.ArrayList<View>?  = null
+
+                                override fun getListFragmentClass(): java.util.ArrayList<Class<*>> = listFragment
+
+                                override fun onPageSelected(selectedposition: Int) {
+                                    view_atlases?.tv_atlases_content?.text=(selectedposition+1).toString()+"/"+data.data.gallery.size+" "+ data.data.gallery[selectedposition].sub_abstract
+                                }
+                            })
+                        }
+                        //图片或者新闻
+                        else ->{
+                            MyARouter.getInstance().build(ARouterPath.Module_Bottomtab0_NewActiviy)
+                                    .withSerializable(VideoKey.Article, list_Data[position].article)
+                                    .navigation(context)
+                        }
+
+                    }
+
                 }
             }
             GSYVideoManager.releaseAllVideos()
@@ -224,9 +316,9 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
     override fun onNotifyData(status: ObserverListener.STATUS, type: String, mobject: Any) {
         when (type) {
             Msg.NewsList -> {
-                if(lsitRefreshingListener!=null&&!lsitRefreshingListener.isEmpty()){
-                    for(i in lsitRefreshingListener.indices){
-                        lsitRefreshingListener[i].onRefreshing(false)
+                if(lsitRefreshingListener!=null&& lsitRefreshingListener?.isEmpty() == false){
+                    for(i in lsitRefreshingListener?.indices!!){
+                        lsitRefreshingListener?.get(i)?.onRefreshing(false)
                     }
                 }
                 if (mRequestUtils.isDataFail(status)) {
@@ -241,7 +333,7 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
                             listDataSoonVideo.clear()
                             listSoonVideoFragment.clear()
                         } else {
-                            listData.clear()
+                            list_Data.clear()
                         }
                         refresh_behot_time = (System.currentTimeMillis() / 1000).toString()
                     } else {
@@ -263,7 +355,7 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
                                 }
                                 listDataSoonVideo.add(mSoonVideo!!)
                                 listSoonVideoFragment.add(SoonVideoFragment::class.java)
-                                DragViewActivity.instance?.notifyDataSetChanged()
+                                DragViewActivity.getInstance(context)?.notifyDataSetChanged()
                             }
 
                             subscriber.onNext(null)
@@ -295,7 +387,7 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
                                 if (mNewsContent?.tag_id == 0L) {
                                     continue
                                 }
-                                listData.add(mNewsContent!!)
+                                list_Data.add(mNewsContent!!)
                             }
 
                             subscriber.onNext(null)
@@ -316,16 +408,16 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
 
                 }
             }
-            Msg.Html -> {
+            Msg.Article -> {
                 if (mRequestUtils.isDataFail(status)) {
                     return
                 }
                 if (mobject != null) {
-                    var mHtml = (mobject as Html)
-                    if (mHtml != null && mHtml.data != null && mHtml.data.content != null) {
-                        listData.indices
-                                .filter { listData[it]?.group_id == mHtml?.data?.group_id }
-                                .forEach { listData[it].html = mHtml?.data?.content }
+                    var mArticle = (mobject as Article)
+                    if (mArticle != null && mArticle.data != null && mArticle.data.content != null) {
+                        list_Data.indices
+                                .filter { list_Data[it]?.group_id == mArticle?.data?.group_id }
+                                .forEach { list_Data[it].article = mArticle }
                     }
                 }
             }
@@ -337,9 +429,9 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
 
 
     override fun onRefresh() {
-        if(lsitRefreshingListener!=null&&!lsitRefreshingListener.isEmpty()){
-            for(i in lsitRefreshingListener.indices){
-                lsitRefreshingListener[i].onRefreshing(true)
+        if(lsitRefreshingListener!=null&& lsitRefreshingListener?.isEmpty() == false){
+            for(i in lsitRefreshingListener?.indices!!){
+                lsitRefreshingListener?.get(i)?.onRefreshing(true)
             }
         }
         isRefresh=true
@@ -347,18 +439,22 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
             mSoonVideoAdapter.list_viewholder.clear()
         }
         refresh_behot_time = (System.currentTimeMillis() / 1000).toString()
-        mRequestUtils.requestNewsList(isRefresh, refresh_idx, mMyRecyclerViewUtils.limit, if (isSoonVideo) listDataSoonVideo.size else listData.size, category, refresh_behot_time)
+        mRequestUtils.requestNewsList(isRefresh, refresh_idx, mMyRecyclerViewUtils.limit, if (isSoonVideo) listDataSoonVideo.size else list_Data.size, category, refresh_behot_time)
     }
 
     override fun onLoadMore() {
         isRefresh=false
         load_behot_time = (System.currentTimeMillis() / 1000).toString()
-        mRequestUtils.requestNewsList(isRefresh, 0, mMyRecyclerViewUtils.limit, if (isSoonVideo) listDataSoonVideo.size else listData.size, category, load_behot_time)
+        mRequestUtils.requestNewsList(isRefresh, 0, mMyRecyclerViewUtils.limit, if (isSoonVideo) listDataSoonVideo.size else list_Data.size, category, load_behot_time)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        lsitRefreshingListener.clear()
+        if(lsitRefreshingListener!=null&& lsitRefreshingListener?.isEmpty() == false){
+            for(i in lsitRefreshingListener?.indices!!){
+                lsitRefreshingListener?.get(i)?.onRefreshing(false)
+            }
+        }
         GSYVideoManager.releaseAllVideos()
     }
 

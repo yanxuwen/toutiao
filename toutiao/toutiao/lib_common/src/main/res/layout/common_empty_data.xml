@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/empty_data"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/common_black"
+    android:background="@color/transparent"
     android:visibility="gone"
-    android:paddingBottom="@dimen/DIMEN_50DP"
-    >
+    tools:visibility="visible"
+    android:paddingBottom="@dimen/DIMEN_50DP">
 
     <ImageView
         android:id="@+id/iv_nodata"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/common_ic_launcher" />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_100DP"
+        android:src="@mipmap/common_no_data" />
 
     <TextView
         android:id="@+id/tv_contant"

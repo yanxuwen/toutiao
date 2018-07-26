@@ -49,8 +49,8 @@ class CommentAdapter(private val mContext: Context, private val mDataSet: List<C
                 var listFragment: java.util.ArrayList<Class<*>> = java.util.ArrayList()
                 listFragment.add(ImageViewerFragment::class.java)
                 //展开放大图片
-                DragViewActivity.startActivity(mContext as Activity?, position)
-                DragViewActivity.setOnDataListener(object : DragViewActivity.OnDataListener{
+                DragViewActivity.startActivity(mContext as Activity?, position,object : DragViewActivity.OnDataListener{
+
                     override fun getListData(): java.util.ArrayList<Any> = listimage
 
                     override fun onBackPressed(): Boolean = true
@@ -59,8 +59,10 @@ class CommentAdapter(private val mContext: Context, private val mDataSet: List<C
 
                     override fun getListFragmentClass(): java.util.ArrayList<Class<*>> = listFragment
 
-                    override fun onPageSelected(position: Int) {
-                    }
+                    override fun onPageSelected(position: Int) = Unit
+
+                    override fun init() = Unit
+
                 })
             }
         }else{

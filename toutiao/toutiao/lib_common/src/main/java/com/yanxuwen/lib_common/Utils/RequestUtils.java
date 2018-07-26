@@ -5,7 +5,7 @@ import android.content.Context;
 import com.yanxuwen.lib_common.retrofit.model.Category.CategoryTask;
 import com.yanxuwen.lib_common.retrofit.model.CategoryVideo.CategoryVideoTask;
 import com.yanxuwen.lib_common.retrofit.model.Comment.CommentTask;
-import com.yanxuwen.lib_common.retrofit.model.Html.HtmlTask;
+import com.yanxuwen.lib_common.retrofit.model.Article.ArticleTask;
 import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsListTask;
 import com.yanxuwen.lib_common.retrofit.model.ReplyList.ReplyListTask;
 import com.yanxuwen.lib_common.retrofit.model.SearchSuggest.SearchSuggestTask;
@@ -106,7 +106,7 @@ public class RequestUtils {
      * 获取html代码片段
      */
     public  void requestHtml(String id){
-        new HtmlTask(context,ob,id).request();
+        new ArticleTask(context,ob,id).request();
     }
 
     /**

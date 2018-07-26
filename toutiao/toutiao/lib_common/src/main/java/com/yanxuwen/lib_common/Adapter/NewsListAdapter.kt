@@ -160,7 +160,7 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
         }
         if(getType(position)!=ViewTypeVideo&&getType(position)!=ViewTypeAd){
             var data = mDataSet[position]
-            if(data.html==null||data.html==""){
+            if(data.article==null){
                 mRequestUtils.requestHtml(data?.group_id.toString())
             }
         }else if(getType(position)==ViewTypeVideo){

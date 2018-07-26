@@ -10,7 +10,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPa
  * Created by hackware on 2016/6/26.
  */
 public class ScaleClipPagerTitleView extends ClipPagerTitleView {
-    private float mMinScale = 0.85f;
+    private float mMinScale = 0.9f;
 
     public ScaleClipPagerTitleView(Context context) {
         super(context);

@@ -30,6 +30,12 @@ class  GlideOptions{
                     .error(com.zhengchen.R.drawable.ic_img_loadfail)
                     .priority(Priority.HIGH)
         }
+        open val options4 by lazy {
+            RequestOptions()
+                    .placeholder(R.color.transparent)
+                    .error(com.zhengchen.R.drawable.ic_img_loadfail)
+                    .priority(Priority.HIGH)
+        }
         open val optionsRound by lazy {
             RequestOptions()
                     .centerCrop()

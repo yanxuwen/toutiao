@@ -106,7 +106,6 @@ public class MainActivity : BaseActivity() , ViewPager.OnPageChangeListener,TopT
         super.onCreate(savedInstanceState)
         setStatusFull(true)
         setSlideable(false)
-        TopTabRecommendFragment.addOnRefreshingListener(this)
 
     }
     override fun initData() {
@@ -132,12 +131,14 @@ public class MainActivity : BaseActivity() , ViewPager.OnPageChangeListener,TopT
     }
     var animator :ObjectAnimator?= null
     var view:ImageView?=null
+    var refreshCurrent=0
     fun onRefresh(index:Int,isBack: Boolean):Boolean{
         if(lastPosition==0&&lastPosition==index&&!isRefresh&&viewpager.currentItem==0){
             var mFragment=mMyPagerAdapter.getItem(viewpager.currentItem)
             if(mFragment is BottomTab0Fragment){
                 var mTopTabRecommendFragment=  mFragment.mMPagerAdapter?.getItem(mFragment.viewpager.currentItem)
                 if(mTopTabRecommendFragment is TopTabRecommendFragment){
+                    mTopTabRecommendFragment.addOnRefreshingListener(this)
                     isRefresh=true
                     if(!isBack) {
                          view = bottomNavigationView.getItemIcon(lastPosition)
@@ -146,6 +147,7 @@ public class MainActivity : BaseActivity() , ViewPager.OnPageChangeListener,TopT
                         animator?.duration = 800*3
                         animator?.repeatCount = Animation.INFINITE
                         animator?.start()
+                        refreshCurrent=mTopTabRecommendFragment.position
                     }else{
                         animator=null
                     }
@@ -158,17 +160,31 @@ public class MainActivity : BaseActivity() , ViewPager.OnPageChangeListener,TopT
         return false
     }
     override fun onRefreshing(refreshing: Boolean) {
-        isRefresh = refreshing
-        if (!refreshing) {
-            animator?.cancel()
-            view?.setImageResource(R.mipmap.tab_home_selected)
-            view?.rotation = 0f
+        var mFragment=mMyPagerAdapter.getItem(viewpager.currentItem)
+        if(mFragment is BottomTab0Fragment) {
+            var mTopTabRecommendFragment = mFragment.mMPagerAdapter?.getItem(mFragment.viewpager.currentItem)
+            if(mTopTabRecommendFragment is TopTabRecommendFragment) {
+                if (refreshCurrent == mTopTabRecommendFragment.position){
+                    isRefresh = refreshing
+                    if (!refreshing) {
+                        animator?.cancel()
+                        view?.setImageResource(R.mipmap.tab_home_selected)
+                        view?.rotation = 0f
+                        return
+                    }else{return}
+                }
+            }
+
         }
+        isRefresh=false
+        animator?.cancel()
+        view?.setImageResource(R.mipmap.tab_home_selected)
+        view?.rotation = 0f
     }
 
     override fun onDestroy() {
         bottomNavigationView?.selectTab(0)
-        TopTabRecommendFragment.removeOnRefreshingListener(this)
+        TopTabRecommendFragment.removeOnRefreshingListener()
 
         super.onDestroy()
 

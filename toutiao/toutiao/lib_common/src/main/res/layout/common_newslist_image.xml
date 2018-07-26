@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/DIMEN_10DP"
-        android:elevation="@dimen/DIMEN_1DP"
+        android:elevation="@dimen/DIMEN_05DP"
         android:background="@color/white">
 
         <LinearLayout

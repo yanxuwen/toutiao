@@ -1,4 +1,4 @@
-package com.yanxuwen.lib_common.retrofit.model.Html;
+package com.yanxuwen.lib_common.retrofit.model.Article;
 
 import com.yanxuwen.retrofit.Annotation.Description;
 import com.yanxuwen.retrofit.Annotation.value;
@@ -11,7 +11,7 @@ import rx.Observable;
  * Created by yanxuwen on 2018/6/6.
  */
 @Description("获取html代码片段")
-public interface HtmlApi  {
+public interface ArticleApi {
     @value
     public String baseUrl= "https://a3.pstatp.com/";
     @value

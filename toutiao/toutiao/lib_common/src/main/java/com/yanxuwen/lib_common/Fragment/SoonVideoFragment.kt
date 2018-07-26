@@ -12,13 +12,14 @@ import com.yanxuwen.lib_common.Utils.video.VideoInfoUtils
 import com.yanxuwen.lib_common.Utils.video.VideoListUtils
 import com.yanxuwen.lib_common.retrofit.model.NewsList.SoonVideo
 import com.yanxuwen.lib_common.widget.Drawer.CommentDragLayout
+import kotlinx.android.synthetic.main.common_drag_comments.view.*
 import kotlinx.android.synthetic.main.common_soonvideo_fragment.view.*
 
 
 /**
  * Created by yanxuwen on 2018/6/15.
+ * 小视频
  */
-
 class SoonVideoFragment : DragFragment() ,View.OnClickListener {
 
 
@@ -51,7 +52,7 @@ class SoonVideoFragment : DragFragment() ,View.OnClickListener {
         view?.tv_music?.text = mSoonVideo?.raw_data?.music?.album_name
         view?.tv_digg_count?.text = VideoInfoUtils().setCount(context, mSoonVideo?.raw_data?.action?.digg_count ?: 0)
         view?.tv_comment_count?.text = VideoInfoUtils().setCount(context, mSoonVideo?.raw_data?.action?.comment_count ?: 0)
-        Glide.with(context).load(mSoonVideo?.raw_data?.user?.info?.avatar_url).transition(DrawableTransitionOptions.withCrossFade()).apply(GlideOptions.optionsRound).into(view?.iv_head)
+        Glide.with(context).load(mSoonVideo?.raw_data?.user?.info?.avatar_url).transition(DrawableTransitionOptions.withCrossFade()).apply(GlideOptions.optionsRound).into(view?.iv_head!!)
         view?.layout_comment?.setOnClickListener(this)
         view?.iv_close?.setOnClickListener(this)
         mVideoListUtils.setData(view?.layout_player!!, -1, mSoonVideo!!)

@@ -1,6 +1,7 @@
 package com.yanxuwen.lib_common.retrofit.model.NewsList;
 
 import com.google.gson.annotations.SerializedName;
+import com.yanxuwen.lib_common.retrofit.model.Article.Article;
 import com.yanxuwen.retrofit.Annotation.Description;
 
 import java.io.Serializable;
@@ -95,7 +96,7 @@ public class NewsContent implements Serializable {
     private int cell_flag;
     private int cell_layout_style;
     private int cell_type;
-    private int comment_count;
+    private long comment_count;
     private String content_decoration;
     private long cursor;
     private int digg_count;
@@ -105,7 +106,8 @@ public class NewsContent implements Serializable {
     private int gallary_image_count;
     private int group_flags;
     private long group_id;
-    private String html;
+    /**该mArticle值，是请求Article接口*/
+    private Article article;
     private boolean has_image;
     private boolean has_m3u8_video;
     private int has_mp4_video;
@@ -280,11 +282,11 @@ public class NewsContent implements Serializable {
         this.cell_type = cell_type;
     }
 
-    public int getComment_count() {
+    public long getComment_count() {
         return comment_count;
     }
 
-    public void setComment_count(int comment_count) {
+    public void setComment_count(long comment_count) {
         this.comment_count = comment_count;
     }
 
@@ -808,19 +810,12 @@ public class NewsContent implements Serializable {
         this.raw_ad_data = raw_ad_data;
     }
 
-    public String getHtml() {
-        return html;
-    }
-
-    public void setHtml(String html) {
-        this.html = html;
-    }
 
     public String getThumb_url() {
         if(getLarge_image_list()!=null){
             return getLarge_image_list().get(getLarge_image_list().size()-1).getUrl();
         }else if(getImage_list()!=null){
-            return getImage_list().get(getImage_list().size()-1).getUrl();
+            return getImage_list().get(0).getUrl_list().get( getImage_list().get(0).getUrl_list().size()-1).getUrl();
         }else if(getMiddle_image()!=null){
             return getMiddle_image().getUrl_list().get(getMiddle_image().getUrl_list().size()-1).getUrl();
         }else if (getVideo_detail_info()!=null&&getVideo_detail_info().getDetail_video_large_image()!=null){
@@ -831,6 +826,15 @@ public class NewsContent implements Serializable {
 
     public void setThumb_url(String thumb_url) {
         this.thumb_url = thumb_url;
+    }
+
+     /**该mArticle值，是请求Article接口*/
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
     }
 
     public static class ActionExtraBean implements Serializable {

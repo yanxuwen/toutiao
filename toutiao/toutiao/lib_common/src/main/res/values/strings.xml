@@ -1,7 +1,7 @@
 <resources>
     <string name="common_app_name">My Application</string>
     <string name="common_not_data">暂时没有数据</string>
-    <string name="common_no_network">网络请求失败，请检查网络！\n轻触刷新刷新</string>
+    <string name="common_no_network">网络不给力</string>
 
     <!--更新-->
     <!-- 更新 -->

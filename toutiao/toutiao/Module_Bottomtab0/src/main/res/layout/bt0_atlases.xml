@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_drag"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    >
+    <RelativeLayout
+        android:id="@+id/layout_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/DIMEN_15DP"
+            android:src="@drawable/common_ic_close" />
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/DIMEN_15DP"
+            android:src="@drawable/common_ic_more" />
+        <TextView
+            android:id="@+id/tv_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/DIMEN_10DP"
+            android:layout_toLeftOf="@id/iv_menu"
+            android:background="@drawable/common_shape_corners_solid_red"
+            android:paddingBottom="@dimen/DIMEN_3DP"
+            android:paddingLeft="@dimen/DIMEN_10DP"
+            android:paddingRight="@dimen/DIMEN_10DP"
+            android:paddingTop="@dimen/DIMEN_3DP"
+            android:text="@string/common_follow"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/DIMEN_13SP" />
+        <RelativeLayout
+            android:layout_toRightOf="@id/iv_close"
+            android:layout_toLeftOf="@id/tv_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/DIMEN_10DP"
+            android:paddingTop="@dimen/DIMEN_10DP">
+
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="@dimen/DIMEN_35DP"
+                android:layout_height="@dimen/DIMEN_35DP"
+                android:src="@mipmap/icon" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/DIMEN_10DP"
+                android:layout_toRightOf="@id/iv_head"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/DIMEN_10DP">
+
+                <TextView
+                    android:id="@+id/tv_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/common_white"
+                    android:textSize="@dimen/DIMEN_18SP"
+                    android:textStyle="bold"
+                    tools:text="农民伯乐" />
+
+                <TextView
+                    android:id="@+id/tv_fans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_author"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/common_white"
+                    android:textSize="@dimen/DIMEN_14SP"
+
+                    tools:text="18.6万粉丝" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

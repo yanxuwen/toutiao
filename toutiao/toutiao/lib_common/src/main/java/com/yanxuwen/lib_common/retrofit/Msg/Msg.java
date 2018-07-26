@@ -20,7 +20,7 @@ public  class Msg {
         /**回复列表*/
         public final static String ReplyList="ReplyList";
         /**获取html代码片段*/
-        public final static String Html="Html";
+        public final static String Article="Article";
         /**分类*/
         public final static String Category="Category";
         /**视频分类*/

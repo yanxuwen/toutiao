@@ -20,9 +20,8 @@ import com.yanxuwen.lib_common.Fragment.ImageViewerFragment
 import com.yanxuwen.lib_common.Utils.MyRecyclerViewUtils
 import com.yanxuwen.lib_common.Utils.Tools
 import com.yanxuwen.lib_common.retrofit.Msg.Msg
+import com.yanxuwen.lib_common.retrofit.model.Article.Article
 import com.yanxuwen.lib_common.retrofit.model.Comment.Comment
-import com.yanxuwen.lib_common.retrofit.model.Html.Html
-import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsContent
 import com.yanxuwen.lib_common.widget.Drawer.ReplyDragLayout
 import com.yanxuwen.module_bottomtab0.Bean.Key.VideoKey
 import com.yanxuwen.module_bottomtab0.R
@@ -39,8 +38,8 @@ import java.util.regex.Pattern
 @Route(path = ARouterPath.Module_Bottomtab0_NewActiviy)
 class NewActivity : BaseActivity() , MyRecyclerView.LoadingListener{
     var offset=0
-    val mNewsContent: NewsContent by lazy {
-        intent.extras.getSerializable(VideoKey.NewsContent) as NewsContent
+    val mArticle: Article by lazy {
+        intent.extras.getSerializable(VideoKey.Article) as Article
     }
     var listCommentData: ArrayList<Comment.DataBean> = ArrayList()
     val mCommentAdapter: CommentAdapter by lazy {
@@ -66,10 +65,10 @@ class NewActivity : BaseActivity() , MyRecyclerView.LoadingListener{
     override fun initView(status: Value.ObservableStatus?) {
         initListViewComment()
         initWebView()
-        if(mNewsContent.html==null||mNewsContent.html==""){
-            mRequestUtils.requestHtml(mNewsContent?.group_id.toString())
+        if(mArticle==null||mArticle.data==null||mArticle.data.content==null||mArticle.data.content==""){
+            mRequestUtils.requestHtml(mArticle?.data?.group_id.toString())
         }else{
-            setWebUrl(mNewsContent.html)
+            setWebUrl(mArticle.data.content)
         }
     }
     fun initListViewComment(){
@@ -191,11 +190,11 @@ class NewActivity : BaseActivity() , MyRecyclerView.LoadingListener{
      }
     override fun onRefresh() {
         offset=0
-        mRequestUtils.requestComment(offset,mMyRecyclerViewUtilsComment.limit,mNewsContent?.item_id, mNewsContent?.item_id)
+        mRequestUtils.requestComment(offset,mMyRecyclerViewUtilsComment.limit,mArticle.data?.group_id.toString(), mArticle.data?.group_id.toString())
     }
     override fun onLoadMore() {
         offset=listCommentData.size
-        mRequestUtils.requestComment(offset,mMyRecyclerViewUtilsComment.limit,mNewsContent?.item_id, mNewsContent?.item_id)
+        mRequestUtils.requestComment(offset,mMyRecyclerViewUtilsComment.limit,mArticle.data?.group_id.toString(), mArticle.data?.group_id.toString())
     }
 
     /**评论*/
@@ -223,12 +222,12 @@ class NewActivity : BaseActivity() , MyRecyclerView.LoadingListener{
                     notifyDataSetChangedComment(true, list_data.size, false)
                 }
             }
-            Msg.Html->{
+            Msg.Article->{
                 if (mRequestUtils.isDataFail(status)) {
                     return
                 }
                 if (mobject != null) {
-                    var mHtml = (mobject as Html)
+                    var mHtml = (mobject as Article)
                     if(mHtml!=null&&mHtml.data!=null&&mHtml.data.content!=null){
                         setWebUrl(mHtml.data.content)
                     }
@@ -285,8 +284,8 @@ class NewActivity : BaseActivity() , MyRecyclerView.LoadingListener{
         }
 
 //        //展开放大图片
-        DragViewActivity.startActivity(context, position)
-        DragViewActivity.setOnDataListener(object : DragViewActivity.OnDataListener{
+        DragViewActivity.startActivity(context, position,object : DragViewActivity.OnDataListener{
+
             override fun getListData(): java.util.ArrayList<Any> = listImgSrc
 
             override fun onBackPressed(): Boolean = true
@@ -295,8 +294,10 @@ class NewActivity : BaseActivity() , MyRecyclerView.LoadingListener{
 
             override fun getListFragmentClass(): java.util.ArrayList<Class<*>> = listFragment
 
-            override fun onPageSelected(position: Int) {
-            }
+            override fun onPageSelected(position: Int) = Unit
+
+            override fun init() = Unit
+
         })
 
     }

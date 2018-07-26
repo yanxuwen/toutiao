@@ -2,9 +2,10 @@ package com.yanxuwen.lib_common.widget.Drawer
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
+import com.yanxuwen.MyRecyclerview.MyBaseAdapter
 import com.yanxuwen.MyRecyclerview.MyRecyclerView
 import com.yanxuwen.lib_common.Adapter.CommentAdapter
-import com.yanxuwen.lib_common.R
 import com.yanxuwen.lib_common.Utils.MyRecyclerViewUtils
 import com.yanxuwen.lib_common.Utils.RequestUtils
 import com.yanxuwen.lib_common.retrofit.Msg.Msg
@@ -49,9 +50,9 @@ class CommentDragLayout : BaseDragLayout , MyObserverListener, MyRecyclerView.Lo
     }
 
     override fun initView() {
-        contentView = findViewById(R.id.layout_comment)
+        contentView =layout_drag_comment
         initListView()
-        iv_close.setOnClickListener({
+        iv_drag_close.setOnClickListener({
             close()
         })
     }
@@ -61,6 +62,14 @@ class CommentDragLayout : BaseDragLayout , MyObserverListener, MyRecyclerView.Lo
         mMyRecyclerViewUtils.setRecyclerView()
         rv_comment?.adapter = mAdapter
         setRecyclerView(rv_comment)
+        mAdapter.setOnItemClickListener(object : MyBaseAdapter.OnItemClickListener{
+            override fun onItemClick(holder: MyBaseAdapter.BaseViewHolder?, view: View?, position: Int) =
+                    if(list[position].comment.reply_count!=0L){
+                        (common_drag_reply as ReplyDragLayout)?.id= (list[position]?.comment?.id).toString()
+                        (common_drag_reply as ReplyDragLayout)?.open()
+                    }else{}
+
+        })
     }
 
     override fun onRefresh() {

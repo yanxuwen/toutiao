@@ -6,14 +6,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.yanxuwen.dragview.DragFragment
 import com.yanxuwen.lib_common.R
-import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.options3
+import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.options4
 import kotlinx.android.synthetic.main.common_images.view.*
 
 /**
  * Created by yanxuwen on 2018/6/28.
- * 图片浏览
+ * 图片流浏览
  */
-class ImageViewerFragment : DragFragment() , View.OnClickListener {
+class AtlasesFragment : DragFragment() , View.OnClickListener {
 
     override fun getDragView(): View? = if (view == null) null else view.iv_images
 
@@ -30,7 +30,7 @@ class ImageViewerFragment : DragFragment() , View.OnClickListener {
     }
 
     override fun initView() {
-        Glide.with(context).load(data as String).transition(DrawableTransitionOptions.withCrossFade()).apply(options3).into(view.iv_images)
+        Glide.with(context).load(data as String).transition(DrawableTransitionOptions.withCrossFade()).apply(options4).into(view.iv_images)
 
     }
 

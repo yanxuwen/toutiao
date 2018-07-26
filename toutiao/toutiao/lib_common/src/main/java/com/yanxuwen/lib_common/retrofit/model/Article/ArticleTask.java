@@ -1,4 +1,4 @@
-package com.yanxuwen.lib_common.retrofit.model.Html;
+package com.yanxuwen.lib_common.retrofit.model.Article;
 
 import android.content.Context;
 
@@ -16,18 +16,18 @@ import rx.Observable;
  * Created by yanxuwen on 2018/6/6.
  */
 @Description("获取html代码片段")
-public class HtmlTask extends MyBaseTask {
-    HtmlBuild mBuild;
+public class ArticleTask extends MyBaseTask {
+    ArticleBuild mBuild;
 
-    public HtmlTask(Context context, ObserverListener ob, String id) {
+    public ArticleTask(Context context, ObserverListener ob, String id) {
         super(context, ob);
-        mBuild = new HtmlBuild(context);
+        mBuild = new ArticleBuild(context);
         mBuild.setId(id);
     }
 
     @Override
     public Observable<String> getObservable() {
-        return ((HtmlApi) getBaseApi()).postString(mBuild.getId(), mBuild.getId());
+        return ((ArticleApi) getBaseApi()).postString(mBuild.getId(), mBuild.getId());
     }
 
     @Override
@@ -52,7 +52,7 @@ public class HtmlTask extends MyBaseTask {
 
     @Override
     public String getDataType() {
-        return Msg.Html;
+        return Msg.Article;
     }
 
     @Override
@@ -62,12 +62,12 @@ public class HtmlTask extends MyBaseTask {
 
     @Override
     public Type returnClass() {
-        return Html.class;
+        return Article.class;
     }
 
     @Override
     public Class<?> getBaseApiClass() {
-        return HtmlApi.class;
+        return ArticleApi.class;
     }
 
     @Override

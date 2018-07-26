@@ -67,7 +67,7 @@ dependencies {
     //抽屉
     compile 'com.yanxuwen.mydrawer:mydrawer:+'
     //拖曳控件
-    compile 'com.yanxuwen.DragView:DragView:1.5.3'
+    compile 'com.yanxuwen.DragView:DragView:1.6.0'
     /**拼音转换*/
     compile 'com.github.SilenceDut:jpinyin:v1.0'
     //文字滚动
