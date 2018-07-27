@@ -30,7 +30,9 @@ class AtlasesFragment : DragFragment() , View.OnClickListener {
     }
 
     override fun initView() {
-        Glide.with(context).load(data as String).transition(DrawableTransitionOptions.withCrossFade()).apply(options4).into(view.iv_images)
+        var options=options4.clone()
+        options.override(view.iv_images.width/2,view.iv_images.height/2)
+        Glide.with(context).load(data as String).transition(DrawableTransitionOptions.withCrossFade()).apply(options).into(view.iv_images)
 
     }
 
