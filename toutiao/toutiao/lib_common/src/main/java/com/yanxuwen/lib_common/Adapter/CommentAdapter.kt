@@ -14,8 +14,8 @@ import com.yanxuwen.lib_common.R
 import com.yanxuwen.lib_common.Utils.Emoji.EmojiUtils.getEmotionContent
 import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.options3
 import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.optionsRound
+import com.yanxuwen.lib_common.Utils.TimeUtils
 import com.yanxuwen.lib_common.retrofit.model.Comment.Comment
-import com.zhengchen.Utils.TimeUtils
 import kotlinx.android.synthetic.main.common_comment.view.*
 
 

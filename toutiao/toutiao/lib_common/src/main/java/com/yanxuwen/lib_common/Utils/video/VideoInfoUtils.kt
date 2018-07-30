@@ -2,7 +2,7 @@ package com.yanxuwen.lib_common.Utils.video
 
 import android.content.Context
 import com.yanxuwen.lib_common.R
-import com.zhengchen.Utils.TimeUtils
+import com.yanxuwen.lib_common.Utils.TimeUtils
 import java.text.DecimalFormat
 
 /**
@@ -23,5 +23,5 @@ public class VideoInfoUtils{
     fun setCount(context:Context,count:Long):String =
             if(count/10000>0) String.format(context.resources.getString(R.string.common_wan,df.format(count.toFloat()/10000))) else  count.toString()
     /**发布时间*/
-    fun setPublishTime(context:Context,publish_time:Long): String =    String.format(context.resources.getString(R.string.common_publish_time),TimeUtils.getStrTime((publish_time*1000).toString(),"yyyy年MM月dd日"))
+    fun setPublishTime(context:Context,publish_time:Long): String =    String.format(context.resources.getString(R.string.common_publish_time), TimeUtils.getStrTime((publish_time*1000).toString(),"yyyy年MM月dd日"))
 }

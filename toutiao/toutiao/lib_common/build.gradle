@@ -46,7 +46,6 @@ dependencies {
     compile support.design
     compile support.v4
     compile alibaba.arouter_api
-    compile project(':MyUtils')
     //kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.anko:anko-common:$anko_version"
@@ -73,6 +72,20 @@ dependencies {
     //文字滚动
     compile 'anylife.scrolltextview:ScrollTextviewLib:1.1'
 
+    //列表
+    compile 'com.yanxuwen.MyRecyclerView:MyRecyclerview:1.5.8'
+    //retrofit
+    compile 'com.yanxuwen.retrofit:retrofit:1.1.9'
+    //myutils
+    compile 'com.yanxuwen.myutils:myutils:1.3.2'
+    //权限
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    //底部栏
+    compile 'com.github.armcha:LuseenBottomNavigation:1.8.2'
+    //指示器
+    compile 'com.github.hackware1993:MagicIndicator:1.5.0'
+    compile 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 
 
 }

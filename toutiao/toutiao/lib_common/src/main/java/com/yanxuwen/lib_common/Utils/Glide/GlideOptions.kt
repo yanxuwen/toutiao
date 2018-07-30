@@ -19,21 +19,21 @@ class  GlideOptions{
         open val options2 by lazy {
             RequestOptions()
                     .centerCrop()
-                    .placeholder(R.drawable.ic_img_loading)
-                    .error(com.zhengchen.R.drawable.ic_img_loadfail)
+                    .placeholder(R.drawable.common_ic_img_loading)
+                    .error(R.drawable.common_ic_img_loadfail)
                     .priority(Priority.HIGH)
         }
 
         open val options3 by lazy {
             RequestOptions()
                     .placeholder(R.color.common_gray_30)
-                    .error(com.zhengchen.R.drawable.ic_img_loadfail)
+                    .error(R.drawable.common_ic_img_loadfail)
                     .priority(Priority.HIGH)
         }
         open val options4 by lazy {
             RequestOptions()
                     .placeholder(R.color.transparent)
-                    .error(com.zhengchen.R.drawable.ic_img_loadfail)
+                    .error(R.drawable.common_ic_img_loadfail)
                     .priority(Priority.HIGH)
         }
         open val optionsRound by lazy {

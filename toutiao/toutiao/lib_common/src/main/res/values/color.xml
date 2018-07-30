@@ -19,6 +19,9 @@
     <color name="common_black40">#66000000</color>
     <color name="common_gray">#888888</color>
     <color name="common_gray2">#f0f0f0</color>
+    <color name="gray">#cccccc</color>
+    <color name="standard_gray">#999999</color>
+
 
     <color name="common_gray_30">#4c888888</color>
 

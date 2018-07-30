@@ -10,9 +10,9 @@ import com.yanxuwen.Base.MStatePagerAdapter
 import com.yanxuwen.lib_common.Base.MyFragment
 import com.yanxuwen.lib_common.Bean.ARouterPath
 import com.yanxuwen.lib_common.Fragment.TopTabRecommendFragment
+import com.yanxuwen.lib_common.widget.titles.ScaleClipPagerTitleView
 import com.yanxuwen.module_bottomtab3.R
 import com.yanxuwen.retrofit.Msg.ObserverListener
-import com.zhengchen.weight.titles.ScaleClipPagerTitleView
 import kotlinx.android.synthetic.main.bt3_.view.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil

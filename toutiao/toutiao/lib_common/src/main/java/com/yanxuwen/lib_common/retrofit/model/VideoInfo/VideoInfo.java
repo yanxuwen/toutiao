@@ -1,9 +1,9 @@
 package com.yanxuwen.lib_common.retrofit.model.VideoInfo;
 
 import com.google.gson.annotations.SerializedName;
+import com.yanxuwen.lib_common.Utils.DataEncrypt.DataEncrypt;
 import com.yanxuwen.lib_common.retrofit.MyBaseModel;
 import com.yanxuwen.retrofit.Annotation.Description;
-import com.zhengchen.Utils.DataEncrypt.DataEncrypt;
 
 /**
  * Created by yanxuwen on 2018/5/10.

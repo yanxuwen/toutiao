@@ -4,4 +4,10 @@
     <declare-styleable name="MyViewPage">
         <attr name="iswrap" format="boolean" />
     </declare-styleable>
+    <!--BottomNavigationView-->
+    <declare-styleable name="BottomNavigationView">
+        <!--文字颜色-->
+        <attr name="colorActive" format="color"/>
+        <attr name="colorInactive" format="color"/>
+    </declare-styleable>
 </resources>

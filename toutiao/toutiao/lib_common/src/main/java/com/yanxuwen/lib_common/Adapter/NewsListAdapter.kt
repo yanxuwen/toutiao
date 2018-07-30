@@ -13,9 +13,9 @@ import com.yanxuwen.lib_common.R
 import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.options
 import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.optionsRound
 import com.yanxuwen.lib_common.Utils.RequestUtils
+import com.yanxuwen.lib_common.Utils.TimeUtils
 import com.yanxuwen.lib_common.Utils.video.VideoListUtils
 import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsContent
-import com.zhengchen.Utils.TimeUtils
 import kotlinx.android.synthetic.main.common_newslist_image.view.*
 import kotlinx.android.synthetic.main.common_newslist_image2.view.*
 import kotlinx.android.synthetic.main.common_newslist_image3.view.*

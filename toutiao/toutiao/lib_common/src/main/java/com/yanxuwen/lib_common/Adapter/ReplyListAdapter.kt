@@ -16,9 +16,9 @@ import com.yanxuwen.lib_common.R
 import com.yanxuwen.lib_common.Utils.Emoji.EmojiUtils
 import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.options3
 import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.optionsRound
+import com.yanxuwen.lib_common.Utils.TimeUtils
 import com.yanxuwen.lib_common.retrofit.model.ReplyList.ReplyList
 import com.yanxuwen.lib_common.widget.MyImageSpan
-import com.zhengchen.Utils.TimeUtils
 import kotlinx.android.synthetic.main.common_reply_list.view.*
 
 

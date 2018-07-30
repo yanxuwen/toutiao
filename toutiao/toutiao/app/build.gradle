@@ -73,13 +73,6 @@ android {
             signingConfig signingConfigs.release
         }
     }
-    repositories {
-        flatDir {
-            dirs 'P:/WorkSpace/Module/share/OAuth/libs';dirs 'libs'  // 申明本地库
-            dirs 'P:/WorkSpace/Module/Utils/MyUtils/libs';dirs 'libs'  // 申明本地库
-            dirs 'libs'   // 申明本地库
-        }
-    }
     productFlavors {
         toutiao {
             applicationId "com.example.app.toutiao"
@@ -94,6 +87,7 @@ dependencies {
     kapt alibaba.arouter_compiler
     //奶油刀
     kapt "com.jakewharton:butterknife-compiler:$butterknife_version"
+    compile 'com.yanxuwen.sliding:lib:+'
 
     if (isModule.toBoolean()) {
         compile project(':lib_common')

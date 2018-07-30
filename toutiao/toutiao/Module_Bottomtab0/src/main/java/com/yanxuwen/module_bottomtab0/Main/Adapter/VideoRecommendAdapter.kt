@@ -7,10 +7,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.yanxuwen.MyRecyclerview.MyBaseAdapter
 import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.options
+import com.yanxuwen.lib_common.Utils.TimeUtils
 import com.yanxuwen.lib_common.Utils.video.VideoInfoUtils
 import com.yanxuwen.lib_common.retrofit.model.VideoRecommend.VideoRecommend
 import com.yanxuwen.module_bottomtab0.R
-import com.zhengchen.Utils.TimeUtils
 import kotlinx.android.synthetic.main.bt0_item_video_recommend.view.*
 
 

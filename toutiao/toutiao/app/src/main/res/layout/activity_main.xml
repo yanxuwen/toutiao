@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         >
         <!--BottomNavigationView默认会加载在最顶层，所以还有嵌套一层-->
-        <com.zhengchen.weight.BottomNavigation.BottomNavigationView
+        <com.example.app.myapplication.weight.BottomNavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

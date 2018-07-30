@@ -13,9 +13,9 @@ import com.yanxuwen.lib_common.Fragment.TopTabRecommendFragment
 import com.yanxuwen.lib_common.retrofit.Msg.Msg
 import com.yanxuwen.lib_common.retrofit.model.Category.Category
 import com.yanxuwen.lib_common.retrofit.model.SearchSuggest.SearchSuggest
+import com.yanxuwen.lib_common.widget.titles.ScaleClipPagerTitleView
 import com.yanxuwen.module_bottomtab0.R
 import com.yanxuwen.retrofit.Msg.ObserverListener
-import com.zhengchen.weight.titles.ScaleClipPagerTitleView
 import kotlinx.android.synthetic.main.bt0_.view.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
