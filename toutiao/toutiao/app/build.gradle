@@ -30,13 +30,13 @@ android {
         versionName "1.0"
     }
     signingConfigs {
-        debug {
-            storeFile file("./GuangYaoTianRun.jks")
-            storePassword "guangyaotianrun"
-            keyAlias "shandengwanhua"
-            keyPassword "shandengwanhua"
-            v2SigningEnabled false
-        }
+//        debug {
+//            storeFile file("./GuangYaoTianRun.jks")
+//            storePassword "guangyaotianrun"
+//            keyAlias "shandengwanhua"
+//            keyPassword "shandengwanhua"
+//            v2SigningEnabled false
+//        }
         release {
             storeFile file("./GuangYaoTianRun.jks")
             storePassword "guangyaotianrun"
@@ -49,12 +49,12 @@ android {
         debug  {
             // 不显示Log, 在java代码中的调用方式为：BuildConfig.LOG_DEBUG
             buildConfigField "boolean", "LOG_DEBUG", "true"
-            //混淆
-            minifyEnabled false
-            //Zipalign优化
-            zipAlignEnabled true
-            //签名
-            signingConfig signingConfigs.debug
+//            //混淆
+//            minifyEnabled false
+//            //Zipalign优化
+//            zipAlignEnabled true
+//            //签名
+//            signingConfig signingConfigs.debug
         }
         release {
             // 如果没有提供混淆规则文件，则设置默认的混淆规则文件（SDK/tools/proguard/proguard-android.txt）

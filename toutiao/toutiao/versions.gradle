@@ -4,7 +4,7 @@
  **/
 ext.deps = [:]
 ext.support_version = '23.1.1'
-ext.kotlin_version = '1.2.0'
+ext.kotlin_version = '1.2.50'
 ext.anko_version = '0.8.2'
 ext.butterknife_version = '8.8.1'
 
