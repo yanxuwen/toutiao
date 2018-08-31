@@ -126,7 +126,10 @@ class VideoActivity : BaseActivity(), MyRecyclerView.LoadingListener {
         head_view.tv_publish.text = VideoInfoUtils().setPublishTime(context, (mNewsContent?.publish_time))
         head_view.tv_abstract.text = mNewsContent.abstractX
         var mVideoListUtils= VideoListUtils(context)
-        mVideoListUtils.setData(layout_player,-1,mNewsContent)
+        var title=mNewsContent.title
+        var imgUrl=mNewsContent?.large_image_list?.get(mNewsContent?.large_image_list.size-1)?.url?:""
+        var url="https://aweme.snssdk.com/aweme/v1/play/?video_id=8c6d59d9dcba426da4d6ec896e1e995f&line=0&ratio=720p&media_type=4&vr_type=0&test_cdn=None&improve_bitrate=0"
+        mVideoListUtils.setData(layout_player,-1,title,imgUrl,url)
         mVideoListUtils.getPlayer()?.seekOnStart = seek
         mVideoListUtils.getPlayer()?.startPlayLogic()
     }

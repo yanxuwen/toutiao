@@ -51,6 +51,7 @@ public class WelcomeActivity extends BaseActivity implements IWelcomeContract.Vi
     @Override
     public void initData() {
         dbCategory=new CategoryDB(context);
+        dbCategoryVideo=new CategoryVideoDB(context);
         mRequestUtils.requestCategory();
         mRequestUtils.requestCategoryVideo();
 

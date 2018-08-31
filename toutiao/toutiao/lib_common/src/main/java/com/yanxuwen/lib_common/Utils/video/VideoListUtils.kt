@@ -58,7 +58,6 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
      private var gsyVideoPlayer: StandardGSYVideoPlayer?=null
     lateinit var imageView: ImageView
     lateinit var gsyVideoOptionBuilder: GSYVideoOptionBuilder
-    lateinit var data: NewsContent
 
 
     constructor(context: Activity) {
@@ -100,21 +99,19 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
                 .setPlayPosition(position)
                 .setVideoAllCallBack(this).build(getPlayer())
     }
-    fun setData(gsyVideoPlayer: SampleCoverVideo, position: Int, data: NewsContent) {
-        this.data=data
+    fun setData(gsyVideoPlayer: SampleCoverVideo, position: Int, title:String , imgUrl:String , url:String) {
         this.gsyVideoPlayer = gsyVideoPlayer
         orientationUtils = OrientationUtils(context, getPlayer())
         GSYVideoType.setShowType(SCREEN_TYPE_FULL)
 
         //增加封面
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-        Glide.with(context).load(data?.large_image_list?.get(data?.large_image_list.size-1)?.url).transition(DrawableTransitionOptions.withCrossFade()).apply(options).into(imageView)
+        Glide.with(context).load(imgUrl).transition(DrawableTransitionOptions.withCrossFade()).apply(options).into(imageView)
         if (imageView.parent != null) {
             val viewGroup = imageView.parent as ViewGroup
             viewGroup.removeView(imageView)
         }
-        var url = "https://aweme.snssdk.com/aweme/v1/play/?video_id=8c6d59d9dcba426da4d6ec896e1e995f&line=0&ratio=720p&media_type=4&vr_type=0&test_cdn=None&improve_bitrate=0"
-        val title: String = data?.title
+        val title: String = title
 
         //防止错位，离开释放
         getPlayer()?.initUIState()

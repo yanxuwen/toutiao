@@ -12,6 +12,7 @@ import java.util.List;
  */
 @Description("新闻内容")
 public class NewsContent implements Serializable {
+
     private static final long serialVersionUID = -7060210544600464481L;
     /**
      * abstract :
@@ -185,6 +186,8 @@ public class NewsContent implements Serializable {
     private String label;
     private int label_style;
     private RawAdDataBean raw_ad_data;
+    private RawDataBean raw_data;
+
 
     public String getAbstractX() {
         return abstractX;
@@ -810,6 +813,13 @@ public class NewsContent implements Serializable {
         this.raw_ad_data = raw_ad_data;
     }
 
+    public RawDataBean getRaw_data() {
+        return raw_data;
+    }
+
+    public void setRaw_data(RawDataBean raw_data) {
+        this.raw_data = raw_data;
+    }
 
     public String getThumb_url() {
         if(getLarge_image_list()!=null){
@@ -1949,6 +1959,368 @@ public class NewsContent implements Serializable {
             }
         }
     }
+    public static class RawDataBean {
+        /**
+         * filter_words : [{"id":"8:0","is_selected":false,"name":"看过了"},{"id":"9:1","is_selected":false,"name":"内容太水"},{"id":"5:1440579744","is_selected":false,"name":"拉黑作者:农村小妹爱唱歌"}]
+         * group_id : 6595776229264067332
+         * group_source : 22
+         * impression_extra : null
+         * large_image : {"height":327,"uri":"video1609/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7","url":"http://sf1-xgcdn-tos.pstatp.com/img/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7~c5_580x327.jpeg","url_list":[{"url":"http://sf1-xgcdn-tos.pstatp.com/img/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7~c5_580x327.jpeg"},{"url":"http://sf3-xgcdn-tos.pstatp.com/img/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7~c5_580x327.jpeg"},{"url":"http://sf6-xgcdn-tos.pstatp.com/img/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7~c5_580x327.jpeg"}],"width":580}
+         * live_info : {"create_time":1535698825,"orientation":0,"room_id":6595776229264067332,"schema":"sslocal://xigua_live?room_id=6595776229264067332&orientation=0","stream_url":{"PullURL":{"FULL_HD1":{"Flv":"http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv","Hls":"http://pull-hls-l1-hs.pstatp.com/hudong/stream-6595775508368444167/playlist.m3u8","Rtmp":"rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167"}},"alternate_pull_url":"rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167","create_time":1535698824,"flv_pull_url":"http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv","stream_id":6595775508368444167},"watching_count":1397,"watching_count_str":"1397人气"}
+         * lottery_info : null
+         * share_url : https://m.toutiaoimg.cn/item/6595776229264067332/?iid=41004251804&app=news_article&timestamp=1535700662
+         * short_id : 102676
+         * title : 专治各种不开心，不来你后悔
+         * user_info : {"author_info":null,"avatar_url":"http://p3-xg.pstatp.com/large/2c6d000c5955477657e4","description":"一边干农活  一边唱唱歌","extend_info":null,"follow":false,"followers_count":360249,"following_count":0,"is_living":false,"live_info":null,"live_orientation":"","media_id":0,"name":"农村小妹爱唱歌","ugc_publish_media_id":0,"user_auth_info":"{\"auth_type\": \"0\", \"other_auth\": {\"pgc\": \"优质音乐领域创作者\"}, \"auth_info\": \"优质音乐领域创作者\"}","user_id":65763950475,"user_verified":false,"verified_content":"","video_live_auth":false}
+         */
+
+        @SerializedName("group_id")
+        private long group_idX;
+        private int group_source;
+        private Object impression_extra;
+        private LargeImageBean large_image;
+        private LiveInfoBean live_info;
+        private Object lottery_info;
+        @SerializedName("share_url")
+        private String share_urlX;
+        private int short_id;
+        @SerializedName("title")
+        private String titleX;
+        @SerializedName("user_info")
+        private UserInfoBean user_infoX;
+        @SerializedName("filter_words")
+        private List<FilterWordsBean> filter_wordsX;
+
+        public long getGroup_idX() {
+            return group_idX;
+        }
+
+        public void setGroup_idX(long group_idX) {
+            this.group_idX = group_idX;
+        }
+
+        public int getGroup_source() {
+            return group_source;
+        }
+
+        public void setGroup_source(int group_source) {
+            this.group_source = group_source;
+        }
+
+        public Object getImpression_extra() {
+            return impression_extra;
+        }
+
+        public void setImpression_extra(Object impression_extra) {
+            this.impression_extra = impression_extra;
+        }
+
+        public LargeImageBean getLarge_image() {
+            return large_image;
+        }
+
+        public void setLarge_image(LargeImageBean large_image) {
+            this.large_image = large_image;
+        }
+
+        public LiveInfoBean getLive_info() {
+            return live_info;
+        }
+
+        public void setLive_info(LiveInfoBean live_info) {
+            this.live_info = live_info;
+        }
+
+        public Object getLottery_info() {
+            return lottery_info;
+        }
+
+        public void setLottery_info(Object lottery_info) {
+            this.lottery_info = lottery_info;
+        }
+
+        public String getShare_urlX() {
+            return share_urlX;
+        }
+
+        public void setShare_urlX(String share_urlX) {
+            this.share_urlX = share_urlX;
+        }
+
+        public int getShort_id() {
+            return short_id;
+        }
+
+        public void setShort_id(int short_id) {
+            this.short_id = short_id;
+        }
+
+        public String getTitleX() {
+            return titleX;
+        }
+
+        public void setTitleX(String titleX) {
+            this.titleX = titleX;
+        }
+
+        public UserInfoBean getUser_infoX() {
+            return user_infoX;
+        }
+
+        public void setUser_infoX(UserInfoBean user_infoX) {
+            this.user_infoX = user_infoX;
+        }
+
+        public List<FilterWordsBean> getFilter_wordsX() {
+            return filter_wordsX;
+        }
+
+        public void setFilter_wordsX(List<FilterWordsBean> filter_wordsX) {
+            this.filter_wordsX = filter_wordsX;
+        }
+
+        public static class LargeImageBean {
+            /**
+             * height : 327
+             * uri : video1609/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7
+             * url : http://sf1-xgcdn-tos.pstatp.com/img/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7~c5_580x327.jpeg
+             * url_list : [{"url":"http://sf1-xgcdn-tos.pstatp.com/img/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7~c5_580x327.jpeg"},{"url":"http://sf3-xgcdn-tos.pstatp.com/img/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7~c5_580x327.jpeg"},{"url":"http://sf6-xgcdn-tos.pstatp.com/img/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7~c5_580x327.jpeg"}]
+             * width : 580
+             */
+
+            private int height;
+            private String uri;
+            @SerializedName("url")
+            private String urlX;
+            private int width;
+            private List<Article.DataBean.ImageDetailBean> url_list;
+
+            public int getHeight() {
+                return height;
+            }
+
+            public void setHeight(int height) {
+                this.height = height;
+            }
+
+            public String getUri() {
+                return uri;
+            }
+
+            public void setUri(String uri) {
+                this.uri = uri;
+            }
+
+            public String getUrlX() {
+                return urlX;
+            }
+
+            public void setUrlX(String urlX) {
+                this.urlX = urlX;
+            }
+
+            public int getWidth() {
+                return width;
+            }
+
+            public void setWidth(int width) {
+                this.width = width;
+            }
+
+            public List<Article.DataBean.ImageDetailBean> getUrl_list() {
+                return url_list;
+            }
+
+            public void setUrl_list(List<Article.DataBean.ImageDetailBean> url_list) {
+                this.url_list = url_list;
+            }
+        }
+
+        public static class LiveInfoBean {
+            /**
+             * create_time : 1535698825
+             * orientation : 0
+             * room_id : 6595776229264067332
+             * schema : sslocal://xigua_live?room_id=6595776229264067332&orientation=0
+             * stream_url : {"PullURL":{"FULL_HD1":{"Flv":"http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv","Hls":"http://pull-hls-l1-hs.pstatp.com/hudong/stream-6595775508368444167/playlist.m3u8","Rtmp":"rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167"}},"alternate_pull_url":"rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167","create_time":1535698824,"flv_pull_url":"http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv","stream_id":6595775508368444167}
+             * watching_count : 1397
+             * watching_count_str : 1397人气
+             */
+
+            private int create_time;
+            private int orientation;
+            private long room_id;
+            private String schema;
+            private StreamUrlBean stream_url;
+            private int watching_count;
+            private String watching_count_str;
+
+            public int getCreate_time() {
+                return create_time;
+            }
+
+            public void setCreate_time(int create_time) {
+                this.create_time = create_time;
+            }
+
+            public int getOrientation() {
+                return orientation;
+            }
+
+            public void setOrientation(int orientation) {
+                this.orientation = orientation;
+            }
+
+            public long getRoom_id() {
+                return room_id;
+            }
+
+            public void setRoom_id(long room_id) {
+                this.room_id = room_id;
+            }
+
+            public String getSchema() {
+                return schema;
+            }
+
+            public void setSchema(String schema) {
+                this.schema = schema;
+            }
+
+            public StreamUrlBean getStream_url() {
+                return stream_url;
+            }
+
+            public void setStream_url(StreamUrlBean stream_url) {
+                this.stream_url = stream_url;
+            }
+
+            public int getWatching_count() {
+                return watching_count;
+            }
+
+            public void setWatching_count(int watching_count) {
+                this.watching_count = watching_count;
+            }
+
+            public String getWatching_count_str() {
+                return watching_count_str;
+            }
+
+            public void setWatching_count_str(String watching_count_str) {
+                this.watching_count_str = watching_count_str;
+            }
+
+            public static class StreamUrlBean {
+                /**
+                 * PullURL : {"FULL_HD1":{"Flv":"http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv","Hls":"http://pull-hls-l1-hs.pstatp.com/hudong/stream-6595775508368444167/playlist.m3u8","Rtmp":"rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167"}}
+                 * alternate_pull_url : rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167
+                 * create_time : 1535698824
+                 * flv_pull_url : http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv
+                 * stream_id : 6595775508368444167
+                 */
+
+                private PullURLBean PullURL;
+                private String alternate_pull_url;
+                private int create_time;
+                private String flv_pull_url;
+                private long stream_id;
+
+                public PullURLBean getPullURL() {
+                    return PullURL;
+                }
+
+                public void setPullURL(PullURLBean PullURL) {
+                    this.PullURL = PullURL;
+                }
+
+                public String getAlternate_pull_url() {
+                    return alternate_pull_url;
+                }
+
+                public void setAlternate_pull_url(String alternate_pull_url) {
+                    this.alternate_pull_url = alternate_pull_url;
+                }
+
+                public int getCreate_time() {
+                    return create_time;
+                }
+
+                public void setCreate_time(int create_time) {
+                    this.create_time = create_time;
+                }
+
+                public String getFlv_pull_url() {
+                    return flv_pull_url;
+                }
+
+                public void setFlv_pull_url(String flv_pull_url) {
+                    this.flv_pull_url = flv_pull_url;
+                }
+
+                public long getStream_id() {
+                    return stream_id;
+                }
+
+                public void setStream_id(long stream_id) {
+                    this.stream_id = stream_id;
+                }
+
+                public static class PullURLBean {
+                    /**
+                     * FULL_HD1 : {"Flv":"http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv","Hls":"http://pull-hls-l1-hs.pstatp.com/hudong/stream-6595775508368444167/playlist.m3u8","Rtmp":"rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167"}
+                     */
+
+                    private FULLHD1Bean FULL_HD1;
+
+                    public FULLHD1Bean getFULL_HD1() {
+                        return FULL_HD1;
+                    }
+
+                    public void setFULL_HD1(FULLHD1Bean FULL_HD1) {
+                        this.FULL_HD1 = FULL_HD1;
+                    }
+
+                    public static class FULLHD1Bean {
+                        /**
+                         * Flv : http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv
+                         * Hls : http://pull-hls-l1-hs.pstatp.com/hudong/stream-6595775508368444167/playlist.m3u8
+                         * Rtmp : rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167
+                         */
+
+                        private String Flv;
+                        private String Hls;
+                        private String Rtmp;
+
+                        public String getFlv() {
+                            return Flv;
+                        }
+
+                        public void setFlv(String Flv) {
+                            this.Flv = Flv;
+                        }
+
+                        public String getHls() {
+                            return Hls;
+                        }
+
+                        public void setHls(String Hls) {
+                            this.Hls = Hls;
+                        }
+
+                        public String getRtmp() {
+                            return Rtmp;
+                        }
+
+                        public void setRtmp(String Rtmp) {
+                            this.Rtmp = Rtmp;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
 
 }

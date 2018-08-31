@@ -17,7 +17,7 @@ import rx.Observable;
 /**
  * Created by yanxuwen on 2018/5/10.
  */
-@Description("分类")
+@Description("视频分类")
 public class CategoryVideoTask extends MyBaseTask {
     CategoryVideoDB db;
     CategoryVideoBuild mBuild;

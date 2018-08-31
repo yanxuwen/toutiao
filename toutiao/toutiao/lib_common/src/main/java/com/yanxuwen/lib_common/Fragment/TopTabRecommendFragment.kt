@@ -3,6 +3,7 @@ package com.yanxuwen.lib_common.Fragment
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -19,6 +20,7 @@ import com.yanxuwen.lib_common.Bean.ARouterPath
 import com.yanxuwen.lib_common.R
 import com.yanxuwen.lib_common.Utils.Divider.DividerGridItemDecoration
 import com.yanxuwen.lib_common.Utils.Glide.GlideOptions.Companion.optionsRound
+import com.yanxuwen.lib_common.Utils.MyGsonUtils
 import com.yanxuwen.lib_common.Utils.MyRecyclerViewUtils
 import com.yanxuwen.lib_common.Utils.video.VideoInfoUtils
 import com.yanxuwen.lib_common.Utils.video.VideoListUtils
@@ -381,10 +383,18 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
                                 val jsonObject = JSONObject(json)
                                 var mNewsContent: NewsContent? = null
                                 try {
-                                    mNewsContent = GsonUtils.fromJson(jsonObject.toString(), NewsContent::class.java) as NewsContent
+                                    //如果是直播，则要过滤user_auth_info，这样写法写死，不提倡
+                                    if(json.contains("live_info")){
+
+                                        mNewsContent =  MyGsonUtils.fromJson(jsonObject.toString(), NewsContent::class.java,"user_auth_info") as NewsContent
+                                    }else{
+                                        mNewsContent = GsonUtils.fromJson(jsonObject.toString(), NewsContent::class.java) as NewsContent
+                                    }
                                 } catch (e: Exception) {
+                                    Log.e("xxx",""+e.message)
                                 }
-                                if (mNewsContent?.tag_id == 0L) {
+                                //tag_id代表暂时没有设定这个类型，但是直播除外
+                                if (mNewsContent?.tag_id == 0L && !json.contains("live_info")) {
                                     continue
                                 }
                                 list_Data.add(mNewsContent!!)

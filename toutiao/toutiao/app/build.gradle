@@ -31,17 +31,17 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file("./GuangYaoTianRun.jks")
-            storePassword "guangyaotianrun"
-            keyAlias "shandengwanhua"
-            keyPassword "shandengwanhua"
+            storeFile file("./yanxuwen.jks")
+            storePassword "yxe19920310"
+            keyAlias "yanxuwen"
+            keyPassword "yxe19920310"
             v2SigningEnabled false
         }
         release {
-            storeFile file("./GuangYaoTianRun.jks")
-            storePassword "guangyaotianrun"
-            keyAlias "shandengwanhua"
-            keyPassword "shandengwanhua"
+            storeFile file("./yanxuwen.jks")
+            storePassword "yxe19920310"
+            keyAlias "yanxuwen"
+            keyPassword "yxe19920310"
             v2SigningEnabled false
         }
     }

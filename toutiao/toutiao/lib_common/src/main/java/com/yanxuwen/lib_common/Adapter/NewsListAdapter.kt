@@ -16,6 +16,7 @@ import com.yanxuwen.lib_common.Utils.RequestUtils
 import com.yanxuwen.lib_common.Utils.TimeUtils
 import com.yanxuwen.lib_common.Utils.video.VideoListUtils
 import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsContent
+import kotlinx.android.synthetic.main.common_live_video.view.*
 import kotlinx.android.synthetic.main.common_newslist_image.view.*
 import kotlinx.android.synthetic.main.common_newslist_image2.view.*
 import kotlinx.android.synthetic.main.common_newslist_image3.view.*
@@ -41,11 +42,13 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
     val ViewTypeWords = 1002
     /**广告类型*/
     val ViewTypeAd = 1003
+    /**直播*/
+    val ViewTypeLive = 1004
 
     /**判断是图片还是视频，还是广告*/
      fun getType(position: Int): Int {
         var data = mDataSet[position]
-        if (data.raw_ad_data == null) {
+        if (data.raw_ad_data == null && data.raw_data == null) {
             //视频类型
              if (data.isHas_video ) {
                 return ViewTypeVideo
@@ -62,6 +65,10 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
         //广告
         else if (data.raw_ad_data != null) {
             return ViewTypeAd
+        }
+        //直播
+        else if (data.raw_data != null) {
+            return ViewTypeLive
         }
         return 0
     }
@@ -83,6 +90,9 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
     val type_ad_3 = 3*type+ViewTypeAd//图片广告3，多张图片，懂车帝分类
     val type_ad_4 = 4*type+ViewTypeAd//图片广告4，右侧图片，懂车帝分类
     val type_ad_8 = 8*type+ViewTypeAd//含有头像的广告，也就是视频分类里面的广告
+
+    val type_live = 106*type+ViewTypeLive//直播
+
     /**获取更加具体的类型，比如，广告下的某个类型*/
     override fun getItemViewType(position: Int): Int {
         var data = mDataSet[position]
@@ -114,6 +124,9 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
             ViewTypeAd -> {
                 return data.raw_ad_data.display_type*type+ViewTypeAd
             }
+            ViewTypeLive -> {
+                return type_live
+            }
         }
         return 0
     }
@@ -141,7 +154,10 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
             }
             type_vide_2->{
                 layout = R.layout.common_video_large
-
+            }
+            //直播
+            type_live->{
+                layout = R.layout.common_live_video
             }
             else -> {
                 layout = R.layout.common_newslist_null
@@ -157,6 +173,8 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
             ViewTypeImage->{setViewTypeImage(position,mViewHolder.itemView)}
             ViewTypeWords->{setViewTypeWords(position,mViewHolder.itemView)}
             ViewTypeAd->{setViewTypeAd(position,mViewHolder.itemView)}
+            ViewTypeLive->{setViewTypeLive(position,mViewHolder.itemView)}
+
         }
         if(getType(position)!=ViewTypeVideo&&getType(position)!=ViewTypeAd){
             var data = mDataSet[position]
@@ -176,7 +194,10 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
         //中间大视频，有头像
             type_vide_12 -> {
                 var mVideoListUtils=VideoListUtils(mContext as Activity)
-                mVideoListUtils.setData(itemView.layout_player,position,data)
+                var title=data.title
+                var imgUrl=data?.large_image_list?.get(data?.large_image_list.size-1)?.url?:""
+                var url="https://aweme.snssdk.com/aweme/v1/play/?video_id=8c6d59d9dcba426da4d6ec896e1e995f&line=0&ratio=720p&media_type=4&vr_type=0&test_cdn=None&improve_bitrate=0"
+                mVideoListUtils.setData(itemView.layout_player,position,title,imgUrl,url)
                 mVideoListUtils.setOnVideoStatus(object :VideoListUtils.OnVideoStatus{
                     override fun onVideoPlay() {
                         itemView.iv_head.visibility=View.GONE
@@ -321,7 +342,10 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
         //含有头像的广告，也就是视频分类里面的广告
             type_ad_8 -> {
                 var mVideoListUtils=VideoListUtils(mContext as Activity)
-                mVideoListUtils.setData(itemView.layout_player,position,data)
+                var title=data.title
+                var imgUrl=data?.large_image_list?.get(data?.large_image_list.size-1)?.url?:""
+                var url="https://aweme.snssdk.com/aweme/v1/play/?video_id=8c6d59d9dcba426da4d6ec896e1e995f&line=0&ratio=720p&media_type=4&vr_type=0&test_cdn=None&improve_bitrate=0"
+                mVideoListUtils.setData(itemView.layout_player,position,title,imgUrl,url)
                 itemView.tv_video_count.visibility = View.GONE
                 itemView.tv_video_follow.visibility = View.GONE
                 itemView.tv_video_ad.visibility = View.VISIBLE
@@ -381,6 +405,35 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
                         return true
                     }
                 })
+            }
+        }
+    }
+    /**设置直播*/
+     fun setViewTypeLive(position: Int,itemView:View){
+        var data = mDataSet[position]
+        when (getItemViewType(position)) {
+            //直播
+            type_live -> {
+                var mVideoListUtils=VideoListUtils(mContext as Activity)
+                var imgUrl=data?.raw_data?.large_image?.url_list?.get((data?.raw_data?.large_image?.url_list)?.size!! -1)?.url?:""
+                var url=data?.raw_data?.live_info?.stream_url?.flv_pull_url?:""
+                mVideoListUtils.setData(itemView.layout_live_player,position,data?.raw_data?.titleX?:"",imgUrl,url)
+                mVideoListUtils.setOnVideoStatus(object :VideoListUtils.OnVideoStatus{
+                    override fun onVideoPlay() {
+                        itemView.iv_live_head.visibility=View.GONE
+                        itemView.iv_live_headbg.visibility=View.GONE
+
+                    }
+                })
+                //根据播放状态来判断是否显示
+                itemView.iv_live_head.visibility=if(mVideoListUtils.isFirstPlay)View.GONE else View.VISIBLE
+                itemView.iv_live_headbg.visibility=if(mVideoListUtils.isFirstPlay)View.GONE else View.VISIBLE
+
+
+                itemView.iv_live_headbg.setTextAndColor("", mContext.resources.getColor(R.color.white))
+                Glide.with(mContext).load(data?.raw_data?.user_infoX?.avatar_url).transition(DrawableTransitionOptions.withCrossFade()).apply(optionsRound).into(itemView.iv_live_head)
+                itemView.tv_live_follow.text = if (data?.raw_data?.user_infoX?.isFollow == true) mContext.getString(R.string.common_has_follow) else mContext.getString(R.string.common_follow)
+                itemView.tv_live_author.text = data?.raw_data?.user_infoX?.name
             }
         }
     }
