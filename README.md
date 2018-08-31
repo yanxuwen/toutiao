@@ -1,7 +1,7 @@
 用kotlin编写了Android模仿今日头条app，由于头条视频请求有加密，所以视频地址暂时写死。
 使用组件化进行开发，想要单独模块运行则在gradle.properties的文件加下的isModule的值改成true即可。
 由于是新学的组件化，该demo只是练习之作，而今日头条的公共东西又很多，所以才导致很多东西都放在了common模块。
-###### 版本更新：整理代码
+# 版本更新：增加直播功能，目前只能在列表播放直播，界面待完善，由于公司非常的忙碌，实在没空更新，不过会随着今日头条的版本更新而更新。谢谢支持
 ###### 下面是效果图。
 ![0.png](https://upload-images.jianshu.io/upload_images/6835615-401a1df7ae744a77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
