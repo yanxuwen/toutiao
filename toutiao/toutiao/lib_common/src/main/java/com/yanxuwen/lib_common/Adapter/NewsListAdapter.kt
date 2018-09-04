@@ -414,21 +414,9 @@ class NewsListAdapter(private val mContext: Context, private val mDataSet: List<
         when (getItemViewType(position)) {
             //直播
             type_live -> {
-                var mVideoListUtils=VideoListUtils(mContext as Activity)
                 var imgUrl=data?.raw_data?.large_image?.url_list?.get((data?.raw_data?.large_image?.url_list)?.size!! -1)?.url?:""
-                var url=data?.raw_data?.live_info?.stream_url?.flv_pull_url?:""
-                mVideoListUtils.setData(itemView.layout_live_player,position,data?.raw_data?.titleX?:"",imgUrl,url)
-                mVideoListUtils.setOnVideoStatus(object :VideoListUtils.OnVideoStatus{
-                    override fun onVideoPlay() {
-                        itemView.iv_live_head.visibility=View.GONE
-                        itemView.iv_live_headbg.visibility=View.GONE
 
-                    }
-                })
-                //根据播放状态来判断是否显示
-                itemView.iv_live_head.visibility=if(mVideoListUtils.isFirstPlay)View.GONE else View.VISIBLE
-                itemView.iv_live_headbg.visibility=if(mVideoListUtils.isFirstPlay)View.GONE else View.VISIBLE
-
+                Glide.with(mContext).load(imgUrl).transition(DrawableTransitionOptions.withCrossFade()).apply(options).into(itemView.layout_live_player)
 
                 itemView.iv_live_headbg.setTextAndColor("", mContext.resources.getColor(R.color.white))
                 Glide.with(mContext).load(data?.raw_data?.user_infoX?.avatar_url).transition(DrawableTransitionOptions.withCrossFade()).apply(optionsRound).into(itemView.iv_live_head)
