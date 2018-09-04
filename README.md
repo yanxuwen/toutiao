@@ -4,7 +4,7 @@
 #### 版本更新：增加直播功能，直播详情暂未完善，但是能正常播放。
 ###### 下面是效果图。
 
-![微信图片_20180904092458_gaitubao_com_339x678.jpg](https://upload-images.jianshu.io/upload_images/6835615-c7fbd4c94d284b38.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![微信图片_20180904140137_gaitubao_com_339x678.jpg](https://upload-images.jianshu.io/upload_images/6835615-300768945a8984ec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 ![0.png](https://upload-images.jianshu.io/upload_images/6835615-401a1df7ae744a77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
