@@ -16,8 +16,6 @@ public class ARouterPath {
     /**底部0*/
     public static final String Module_Bottomtab0_BottomTab0Fragment="/Module_Bottomtab0/BottomTab0Fragment";
     public static final String Module_Bottomtab0_VideoActiviy="/Module_Bottomtab0/VideoActiviy";
-    public static final String Module_Bottomtab0_LiveActiviy="/Module_Bottomtab0/LiveActiviy";
-    public static final String Module_Bottomtab0_LiveActiviy2="/Module_Bottomtab0/LiveActiviy2";
 
     public static final String Module_Bottomtab0_NewActiviy="/Module_Bottomtab0/NewActiviy";
 
@@ -25,6 +23,8 @@ public class ARouterPath {
     /*********************Module_Bottomtab1**********************/
     /**底部1*/
     public static final String Module_Bottomtab1_BottomTab1Fragment="/Module_Bottomtab1/BottomTab1Fragment";
+    public static final String Module_Bottomtab1_LiveActiviy="/Module_Bottomtab1/LiveActiviy";
+    public static final String Module_Bottomtab1_LiveActiviy2="/Module_Bottomtab1/LiveActiviy2";
 
     /*********************Module_Bottomtab2**********************/
     /**底部2*/

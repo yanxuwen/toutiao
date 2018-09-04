@@ -1,8 +1,6 @@
-package com.yanxuwen.module_bottomtab0.Main
+package com.yanxuwen.module_bottomtab1.Main
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.yanxuwen.lib_common.Base.BaseActivity
@@ -10,22 +8,22 @@ import com.yanxuwen.lib_common.Bean.ARouterPath
 import com.yanxuwen.lib_common.Bean.Value
 import com.yanxuwen.lib_common.Utils.video.VideoListUtils
 import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsContent
-import com.yanxuwen.module_bottomtab0.Bean.Key.VideoKey
-import com.yanxuwen.module_bottomtab0.R
+import com.yanxuwen.lib_common.Base.Key.VideoKey
+import com.yanxuwen.module_bottomtab1.R
 import com.yanxuwen.myutils.Utils.ToastUtil
-import kotlinx.android.synthetic.main.bt0_activity_live.*
+import kotlinx.android.synthetic.main.bt1_activity_live2.*
 
 /**
  * Created by yanxw on 2018/9/3.
- * 横屏直播
+ * 竖屏直播
  */
-@Route(path = ARouterPath.Module_Bottomtab0_LiveActiviy)
-class LiveActivity : BaseActivity() {
+@Route(path = ARouterPath.Module_Bottomtab1_LiveActiviy2)
+class LiveActivity2 : BaseActivity() {
     val mNewsContent: NewsContent by lazy {
         intent.extras.getSerializable(VideoKey.NewsContent) as NewsContent
     }
     override fun onCreate(savedInstanceState: Bundle?) {
-        setContentView(R.layout.bt0_activity_live)
+        setContentView(R.layout.bt1_activity_live2)
         super.onCreate(savedInstanceState)
         setStatusFull(true)
     }
@@ -43,6 +41,7 @@ class LiveActivity : BaseActivity() {
         mVideoListUtils.setData(layout_live,-1,mNewsContent?.raw_data?.titleX?:"",imgUrl,url)
         mVideoListUtils.getPlayer()?.startPlayLogic()
     }
+
     override fun onBackPressed() {
         if (GSYVideoManager.backFromWindowFull(this)) {
             return

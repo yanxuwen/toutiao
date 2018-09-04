@@ -31,7 +31,7 @@ import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsList
 import com.yanxuwen.lib_common.retrofit.model.NewsList.SoonVideo
 import com.yanxuwen.lib_common.widget.Drawer.CommentDragLayout
 import com.yanxuwen.lib_common.widget.Drawer.ReplyDragLayout
-import com.yanxuwen.module_bottomtab0.Bean.Key.VideoKey
+import com.yanxuwen.lib_common.Base.Key.VideoKey
 import com.yanxuwen.retrofit.GsonUtils
 import com.yanxuwen.retrofit.Msg.ObserverListener
 import kotlinx.android.synthetic.main.common_activity_recyclerview.view.*
@@ -216,13 +216,13 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
                 mAdapter.ViewTypeLive -> {
                     //横屏直播
                     if(list_Data[position].raw_data?.live_info?.orientation==1){
-                        MyARouter.getInstance().build(ARouterPath.Module_Bottomtab0_LiveActiviy)
+                        MyARouter.getInstance().build(ARouterPath.Module_Bottomtab1_LiveActiviy)
                                 .withSerializable(VideoKey.NewsContent, list_Data[position])
                                 .navigation(context)
                     }
                     //竖屏直播
                     else if(list_Data[position].raw_data?.live_info?.orientation==0){
-                        MyARouter.getInstance().build(ARouterPath.Module_Bottomtab0_LiveActiviy2)
+                        MyARouter.getInstance().build(ARouterPath.Module_Bottomtab1_LiveActiviy2)
                                 .withSerializable(VideoKey.NewsContent, list_Data[position])
                                 .navigation(context)
                     }

@@ -26,7 +26,7 @@ import com.yanxuwen.lib_common.retrofit.model.Comment.Comment
 import com.yanxuwen.lib_common.retrofit.model.NewsList.NewsContent
 import com.yanxuwen.lib_common.retrofit.model.VideoRecommend.VideoRecommend
 import com.yanxuwen.lib_common.widget.Drawer.ReplyDragLayout
-import com.yanxuwen.module_bottomtab0.Bean.Key.VideoKey
+import com.yanxuwen.lib_common.Base.Key.VideoKey
 import com.yanxuwen.module_bottomtab0.Main.Adapter.VideoRecommendAdapter
 import com.yanxuwen.module_bottomtab0.R
 import com.yanxuwen.retrofit.Msg.ObserverListener

@@ -5,6 +5,14 @@
     <application android:allowBackup="true"
         android:supportsRtl="true">
 
+        <activity
+            android:name=".Main.LiveActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Main.LiveActivity2"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

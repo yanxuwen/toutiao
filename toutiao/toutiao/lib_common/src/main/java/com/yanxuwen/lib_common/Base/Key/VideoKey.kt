@@ -1,4 +1,4 @@
-package com.yanxuwen.module_bottomtab0.Bean.Key
+package com.yanxuwen.lib_common.Base.Key
 
 /**
  * Created by yanxuwen on 2018/5/25.
