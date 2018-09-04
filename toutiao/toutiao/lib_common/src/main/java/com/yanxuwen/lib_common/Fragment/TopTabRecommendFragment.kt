@@ -212,6 +212,22 @@ class TopTabRecommendFragment : MyFragment(), MyRecyclerView.LoadingListener {
         })
         mAdapter.setOnItemClickListener { holder, view, position ->
             when (mAdapter.getType(position)) {
+             //直播
+                mAdapter.ViewTypeLive -> {
+                    //横屏直播
+                    if(list_Data[position].raw_data?.live_info?.orientation==1){
+                        MyARouter.getInstance().build(ARouterPath.Module_Bottomtab0_LiveActiviy)
+                                .withSerializable(VideoKey.NewsContent, list_Data[position])
+                                .navigation(context)
+                    }
+                    //竖屏直播
+                    else if(list_Data[position].raw_data?.live_info?.orientation==0){
+                        MyARouter.getInstance().build(ARouterPath.Module_Bottomtab0_LiveActiviy2)
+                                .withSerializable(VideoKey.NewsContent, list_Data[position])
+                                .navigation(context)
+                    }
+
+                }
             //视频
                 mAdapter.ViewTypeVideo -> {
                     MyARouter.getInstance().build(ARouterPath.Module_Bottomtab0_VideoActiviy)

@@ -246,9 +246,17 @@ class VideoActivity : BaseActivity(), MyRecyclerView.LoadingListener {
         }
     }
 
+    override fun onResume() {
+        GSYVideoManager.onResume()
+        super.onResume()
+    }
+    override fun onPause() {
+        GSYVideoManager.onPause()
+        super.onPause()
+    }
     override fun onDestroy() {
-        super.onDestroy()
         GSYVideoManager.releaseAllVideos()
+        super.onDestroy()
     }
     override fun onBackPressed() {
         if (GSYVideoManager.backFromWindowFull(this)) {

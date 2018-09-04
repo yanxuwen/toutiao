@@ -14,6 +14,7 @@
     <color name="common_deep_blue">#406599</color>
     <color name="common_white">#ffffff</color>
     <color name="common_red">#f85959</color>
+    <color name="common_red_90">#E5f85959</color>
     <color name="common_black">#313438</color>
     <color name="common_black70">#B2000000</color>
     <color name="common_black40">#66000000</color>

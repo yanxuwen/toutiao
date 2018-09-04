@@ -1959,7 +1959,7 @@ public class NewsContent implements Serializable {
             }
         }
     }
-    public static class RawDataBean {
+    public static class RawDataBean implements Serializable{
         /**
          * filter_words : [{"id":"8:0","is_selected":false,"name":"看过了"},{"id":"9:1","is_selected":false,"name":"内容太水"},{"id":"5:1440579744","is_selected":false,"name":"拉黑作者:农村小妹爱唱歌"}]
          * group_id : 6595776229264067332
@@ -2079,7 +2079,7 @@ public class NewsContent implements Serializable {
             this.filter_wordsX = filter_wordsX;
         }
 
-        public static class LargeImageBean {
+        public static class LargeImageBean implements Serializable{
             /**
              * height : 327
              * uri : video1609/tos-cn-i-0000/e593c6de53294093a2c79b054eb564f7
@@ -2136,7 +2136,7 @@ public class NewsContent implements Serializable {
             }
         }
 
-        public static class LiveInfoBean {
+        public static class LiveInfoBean implements Serializable{
             /**
              * create_time : 1535698825
              * orientation : 0
@@ -2211,7 +2211,7 @@ public class NewsContent implements Serializable {
                 this.watching_count_str = watching_count_str;
             }
 
-            public static class StreamUrlBean {
+            public static class StreamUrlBean implements Serializable{
                 /**
                  * PullURL : {"FULL_HD1":{"Flv":"http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv","Hls":"http://pull-hls-l1-hs.pstatp.com/hudong/stream-6595775508368444167/playlist.m3u8","Rtmp":"rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167"}}
                  * alternate_pull_url : rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167
@@ -2266,7 +2266,7 @@ public class NewsContent implements Serializable {
                     this.stream_id = stream_id;
                 }
 
-                public static class PullURLBean {
+                public static class PullURLBean implements Serializable{
                     /**
                      * FULL_HD1 : {"Flv":"http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv","Hls":"http://pull-hls-l1-hs.pstatp.com/hudong/stream-6595775508368444167/playlist.m3u8","Rtmp":"rtmp://pull-rtmp-l1-hs.pstatp.com/hudong/stream-6595775508368444167"}
                      */
@@ -2281,7 +2281,7 @@ public class NewsContent implements Serializable {
                         this.FULL_HD1 = FULL_HD1;
                     }
 
-                    public static class FULLHD1Bean {
+                    public static class FULLHD1Bean implements Serializable{
                         /**
                          * Flv : http://pull-flv-l1-hs.pstatp.com/hudong/stream-6595775508368444167.flv
                          * Hls : http://pull-hls-l1-hs.pstatp.com/hudong/stream-6595775508368444167/playlist.m3u8

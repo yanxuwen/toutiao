@@ -71,14 +71,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/toutiaoDebug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/toutiaoDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/toutiaoDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/toutiaoDebugAndroidTest" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/toutiao/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/toutiao/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/toutiao/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/toutiao/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/toutiao/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/toutiao/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/toutiao/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/toutiaoDebugUnitTest" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testToutiaoDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testToutiaoDebug/resources" type="java-test-resource" />
@@ -87,6 +79,14 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testToutiaoDebug/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testToutiaoDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testToutiaoDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/toutiaoDebugAndroidTest" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/toutiao/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/toutiao/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/toutiao/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/toutiao/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/toutiao/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/toutiao/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/toutiao/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/toutiao/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/toutiao/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/toutiao/assets" type="java-resource" />
