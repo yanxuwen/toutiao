@@ -1,7 +1,10 @@
 package com.yanxuwen.lib_common.Utils.video;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -11,12 +14,13 @@ import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
 import com.yanxuwen.lib_common.R;
 
 /**
- * 带封面
+ * 该封面不是播放器自带的封面，为了封面切换到视频（该播放器封面切换到视频会黑屏，体验不好），会闪烁而多增加了一个封面
  */
-
 public class SampleCoverVideo extends StandardGSYVideoPlayer {
 
-    ImageView mCoverImage;
+    ImageView thumbImage2;
+
+    View mThumbImageViewLayout2;
 
     String mCoverOriginUrl;
 
@@ -38,12 +42,8 @@ public class SampleCoverVideo extends StandardGSYVideoPlayer {
     @Override
     protected void init(Context context) {
         super.init(context);
-        mCoverImage = (ImageView) findViewById(R.id.thumbImage);
-
-        if (mThumbImageViewLayout != null &&
-                (mCurrentState == -1 || mCurrentState == CURRENT_STATE_NORMAL || mCurrentState == CURRENT_STATE_ERROR)) {
-            mThumbImageViewLayout.setVisibility(VISIBLE);
-        }
+        thumbImage2 = findViewById(R.id.thumbImage2);
+        mThumbImageViewLayout2 = findViewById(R.id.thumb2);
     }
 
     @Override
@@ -62,14 +62,15 @@ public class SampleCoverVideo extends StandardGSYVideoPlayer {
                                 .error(res)
                                 .placeholder(res))
                 .load(url)
-                .into(mCoverImage);
+                .into(thumbImage2);
     }
 
-    @Override
-    public GSYBaseVideoPlayer startWindowFullscreen(Context context, boolean actionBar, boolean statusBar) {
-        GSYBaseVideoPlayer gsyBaseVideoPlayer = super.startWindowFullscreen(context, actionBar, statusBar);
-        SampleCoverVideo sampleCoverVideo = (SampleCoverVideo) gsyBaseVideoPlayer;
-        sampleCoverVideo.loadCoverImage(mCoverOriginUrl, mDefaultRes);
-        return gsyBaseVideoPlayer;
+    public void onInfo(int what, int extra) {
+        super.onInfo(what, extra);
+        switch (what) {
+            case MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
+                thumbImage2.setVisibility(GONE);
+                break;
+        }
     }
 }

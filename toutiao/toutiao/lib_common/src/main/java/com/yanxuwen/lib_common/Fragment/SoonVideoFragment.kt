@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.common_soonvideo_fragment.view.*
  * Created by yanxuwen on 2018/6/15.
  * 小视频
  */
-class SoonVideoFragment : DragFragment() ,View.OnClickListener {
+class SoonVideoFragment : DragFragment(), View.OnClickListener {
 
 
     var isVisibleToUser = false
@@ -50,8 +50,10 @@ class SoonVideoFragment : DragFragment() ,View.OnClickListener {
         }
         view?.tv_title?.text = mSoonVideo?.raw_data?.title
         view?.tv_music?.text = mSoonVideo?.raw_data?.music?.album_name
-        view?.tv_digg_count?.text = VideoInfoUtils().setCount(context, mSoonVideo?.raw_data?.action?.digg_count ?: 0)
-        view?.tv_comment_count?.text = VideoInfoUtils().setCount(context, mSoonVideo?.raw_data?.action?.comment_count ?: 0)
+        view?.tv_digg_count?.text = VideoInfoUtils().setCount(context, mSoonVideo?.raw_data?.action?.digg_count
+                ?: 0)
+        view?.tv_comment_count?.text = VideoInfoUtils().setCount(context, mSoonVideo?.raw_data?.action?.comment_count
+                ?: 0)
         Glide.with(context).load(mSoonVideo?.raw_data?.user?.info?.avatar_url).transition(DrawableTransitionOptions.withCrossFade()).apply(GlideOptions.optionsRound).into(view?.iv_head!!)
         view?.layout_comment?.setOnClickListener(this)
         view?.iv_close?.setOnClickListener(this)
@@ -68,10 +70,10 @@ class SoonVideoFragment : DragFragment() ,View.OnClickListener {
     override fun init() {
         if (mSoonVideo == null) return
         Handler().postDelayed({
-            if (mVideoListUtils?.getPlayer()?.isInPlayingState == false&&isVisibleToUser) {
+            if (mVideoListUtils?.getPlayer()?.isInPlayingState == false && isVisibleToUser) {
                 mVideoListUtils?.getPlayer()?.startPlayLogic()
             }
-        },300)
+        }, 300)
 
     }
 
@@ -94,7 +96,7 @@ class SoonVideoFragment : DragFragment() ,View.OnClickListener {
                 (view?.common_drag_comments as CommentDragLayout)?.open()
 
             }
-            R.id.iv_close->{
+            R.id.iv_close -> {
                 activity.onBackPressed()
             }
         }
@@ -106,8 +108,8 @@ class SoonVideoFragment : DragFragment() ,View.OnClickListener {
         mVideoListUtils?.getPlayer()?.release()
     }
 
-    fun onBackPressed():Boolean{
-        if((view?.common_drag_comments as CommentDragLayout).isOpen){
+    fun onBackPressed(): Boolean {
+        if ((view?.common_drag_comments as CommentDragLayout).isOpen) {
             (view?.common_drag_comments as CommentDragLayout).close()
             return false
         }

@@ -1,6 +1,7 @@
 package com.yanxuwen.lib_common.Utils.video
 
 import android.app.Activity
+import android.media.MediaPlayer
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -10,6 +11,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.shuyu.gsyvideoplayer.builder.GSYVideoOptionBuilder
+import com.shuyu.gsyvideoplayer.listener.GSYMediaPlayerListener
 import com.shuyu.gsyvideoplayer.listener.VideoAllCallBack
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType.SCREEN_TYPE_FULL
@@ -31,7 +33,8 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
     companion object {
         val TAG = "VideoListUtils"
     }
-    var isFirstPlay=false
+
+    var isFirstPlay = false
 
     interface OnVideoStatus {
         fun onVideoPlay()
@@ -41,6 +44,7 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
     fun setOnVideoStatus(l: OnVideoStatus) {
         mOnVideoStatus = l
     }
+
     lateinit var orientationUtils: OrientationUtils
     open val mRequestUtils: RequestUtils by lazy {
         RequestUtils(context, this)
@@ -50,13 +54,13 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
     val options by lazy {
         RequestOptions()
                 .centerCrop()
-            .placeholder(R.color.common_gray_30)
+                .placeholder(R.color.common_gray_30)
 //            .error(com.yanxuwen.myutils.R.drawable.loadimage)
                 .priority(Priority.HIGH)
     }
     lateinit var context: Activity
-     private var gsyVideoPlayer: StandardGSYVideoPlayer?=null
-    lateinit var imageView: ImageView
+    private var gsyVideoPlayer: StandardGSYVideoPlayer? = null
+    lateinit var imageView: ImageView//播放器里的封面
     lateinit var gsyVideoOptionBuilder: GSYVideoOptionBuilder
 
 
@@ -65,21 +69,25 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
         imageView = ImageView(context)
         gsyVideoOptionBuilder = GSYVideoOptionBuilder()
     }
+
     fun setData(mSoonCoverVideo: SoonCoverVideo, position: Int, mSoonVideo: SoonVideo) {
         this.gsyVideoPlayer = mSoonCoverVideo
         orientationUtils = OrientationUtils(context, getPlayer())
-        var mGSYVideoType= GSYVideoType()
+        var mGSYVideoType = GSYVideoType()
         //根据类型视频类型判断是否全屏
         GSYVideoType.setShowType(SCREEN_TYPE_FULL)
         //增加封面
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-        Glide.with(context).load(mSoonVideo?.raw_data?.first_frame_image_list?.get((mSoonVideo?.raw_data?.first_frame_image_list?.size?:0)-1)?.url).transition(DrawableTransitionOptions.withCrossFade()).apply(options).into(imageView)
+        var thumbUrl = mSoonVideo?.raw_data?.first_frame_image_list?.get((mSoonVideo?.raw_data?.first_frame_image_list?.size
+                ?: 0) - 1)?.url;
+        Glide.with(context).load(thumbUrl).transition(DrawableTransitionOptions.withCrossFade()).apply(options).into(imageView)
+        mSoonCoverVideo.loadCoverImage(thumbUrl,0);//该封面不是播放器自带的封面，为了封面切换到视频（该播放器封面切换到视频会黑屏，体验不好），会闪烁而多增加了一个封面
         if (imageView.parent != null) {
             val viewGroup = imageView.parent as ViewGroup
             viewGroup.removeView(imageView)
         }
         var url = "https://aweme.snssdk.com/aweme/v1/play/?video_id=v0200f660000bcctpu51mikeotmsqs10&line=0&ratio=720p&media_type=4&vr_type=0&test_cdn=None&improve_bitrate=0"
-        val title: String =""
+        val title: String = ""
         //防止错位，离开释放
         getPlayer()?.initUIState()
         gsyVideoOptionBuilder
@@ -92,14 +100,15 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
                 .setRotateViewAuto(true)
                 .setLockLand(true)
                 .setPlayTag(TAG)
-                .setDialogProgressColor(context.resources.getColor(R.color.common_red),context.resources.getColor(R.color.common_gray_30))
+                .setDialogProgressColor(context.resources.getColor(R.color.common_red), context.resources.getColor(R.color.common_gray_30))
                 .setShowFullAnimation(false)
                 .setNeedLockFull(true)
                 .setLooping(true)
                 .setPlayPosition(position)
                 .setVideoAllCallBack(this).build(getPlayer())
     }
-    fun setData(gsyVideoPlayer: SampleCoverVideo, position: Int, title:String , imgUrl:String , url:String) {
+
+    fun setData(gsyVideoPlayer: SampleCoverVideo, position: Int, title: String, imgUrl: String, url: String) {
         this.gsyVideoPlayer = gsyVideoPlayer
         orientationUtils = OrientationUtils(context, getPlayer())
         GSYVideoType.setShowType(SCREEN_TYPE_FULL)
@@ -107,6 +116,7 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
         //增加封面
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
         Glide.with(context).load(imgUrl).transition(DrawableTransitionOptions.withCrossFade()).apply(options).into(imageView)
+        gsyVideoPlayer.loadCoverImage(imgUrl,0);//该封面不是播放器自带的封面，为了封面切换到视频（该播放器封面切换到视频会黑屏，体验不好），会闪烁而多增加了一个封面
         if (imageView.parent != null) {
             val viewGroup = imageView.parent as ViewGroup
             viewGroup.removeView(imageView)
@@ -125,7 +135,7 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
                 .setRotateViewAuto(true)
                 .setLockLand(true)
                 .setPlayTag(TAG)
-                .setDialogProgressColor(context.resources.getColor(R.color.common_red),context.resources.getColor(R.color.common_gray_30))
+                .setDialogProgressColor(context.resources.getColor(R.color.common_red), context.resources.getColor(R.color.common_gray_30))
                 .setShowFullAnimation(false)
                 .setNeedLockFull(true)
                 .setPlayPosition(position)
@@ -167,8 +177,8 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
 //            if(mOnVideoStatus!=null)mOnVideoStatus?.onVideoPlay()
 //            mRequestUtils.requestVideoInfo(data.video_id,data.item_id.toString())
 //        }
-        isFirstPlay=true
-        if(mOnVideoStatus!=null)mOnVideoStatus?.onVideoPlay()
+        isFirstPlay = true
+        if (mOnVideoStatus != null) mOnVideoStatus?.onVideoPlay()
     }
 
     override fun onClickStartIcon(url: String?, vararg objects: Any?) {
@@ -233,14 +243,14 @@ class VideoListUtils : VideoAllCallBack, MyObserverListener {
                 }
                 if (mobject != null) {
                     var mVideoInfo = (mobject as VideoInfo)
-                    var url=mVideoInfo?.video_info?.data?.video_list?.video_1?.main_url
-                    if(url!=null&& url != ""){
+                    var url = mVideoInfo?.video_info?.data?.video_list?.video_1?.main_url
+                    if (url != null && url != "") {
                         gsyVideoOptionBuilder.setUrl(url).build(getPlayer())
                         getPlayer()?.startPlayLogic()
                     }
                     //由于现在请求有加密，所以暂时获取不到视频地址
-                    else{
-                        url="http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4"
+                    else {
+                        url = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4"
                         gsyVideoOptionBuilder.setUrl(url).build(getPlayer())
                         getPlayer()?.startPlayLogic()
                     }

@@ -16,21 +16,41 @@
         android:id="@+id/thumb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:background="#000000"
         android:scaleType="fitCenter">
 
         <ImageView
             android:id="@+id/thumbImage"
-            android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/thumb2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:animateLayoutChanges="true"
+        android:scaleType="fitCenter">
+
+        <ImageView
+            android:id="@+id/thumbImage2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
 
     </RelativeLayout>
 
@@ -62,8 +82,8 @@
             android:max="100"
             android:maxHeight="4dp"
             android:minHeight="4dp"
-            android:paddingBottom="8dp"
             android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:progressDrawable="@drawable/video_seek_progress"
             android:thumb="@drawable/video_seek_thumb" />
 
@@ -126,12 +146,12 @@
     </LinearLayout>
 
     <!--<moe.codeest.enviews.ENDownloadView-->
-        <!--android:id="@+id/loading"-->
-        <!--android:layout_width="28dp"-->
-        <!--android:layout_height="28dp"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:visibility="invisible" />-->
+    <!--android:id="@+id/loading"-->
+    <!--android:layout_width="28dp"-->
+    <!--android:layout_height="28dp"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:visibility="invisible" />-->
     <ProgressBar
         android:id="@+id/loading"
         style="@android:style/Widget.Material.Light.ProgressBar.Large"
@@ -142,12 +162,12 @@
         android:indeterminateTint="@color/common_red"
         android:visibility="gone" />
     <!--<moe.codeest.enviews.ENPlayView-->
-        <!--android:id="@+id/start"-->
-        <!--android:layout_width="@dimen/DIMEN_40DP"-->
-        <!--android:layout_height="@dimen/DIMEN_40DP"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:layout_gravity="center_vertical" />-->
+    <!--android:id="@+id/start"-->
+    <!--android:layout_width="@dimen/DIMEN_40DP"-->
+    <!--android:layout_height="@dimen/DIMEN_40DP"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_gravity="center_vertical" />-->
     <ImageView
         android:id="@+id/start"
         android:layout_width="@dimen/DIMEN_40DP"
