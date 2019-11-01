@@ -1,33 +1,37 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.yanxuwen.module_bottomtab0"
-    >
+    package="com.yanxuwen.module_bottomtab0">
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".debug.Bottomtab0Application"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/bt0_app_name"
         android:supportsRtl="true"
-        tools:replace="android:label"
-        android:theme="@style/common_SlideAppTheme">
+        android:theme="@style/common_SlideAppTheme"
+        tools:replace="android:label">
         <activity
             android:name=".debug.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".Main.NewActivity"/>
+            android:name=".Main.VideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Main.NewActivity" />
     </application>
 
 </manifest>
