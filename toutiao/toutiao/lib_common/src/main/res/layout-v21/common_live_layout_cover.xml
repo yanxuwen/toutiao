@@ -34,7 +34,26 @@
         />
 
     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/thumb2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:animateLayoutChanges="true"
+        android:scaleType="fitCenter">
 
+        <ImageView
+            android:id="@+id/thumbImage2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/layout_bottom"
         android:layout_width="match_parent"
